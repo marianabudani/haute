@@ -1,0 +1,18 @@
+{
+    "name": "haute",
+    "version": "1.0.0",
+    "description": "Sitio web para Haute Night Club",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon app.js",
+        "serve": "node app.js"
+    },
+    "dependencies": {
+        "ejs": "^3.1.9",
+        "express": "^4.21.2"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.2"
+    }
+}
