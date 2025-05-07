@@ -229,57 +229,278 @@ a {
   border-radius: 0 8px 8px 0;
 }
 /* ===== ESTILOS COMPATIBLES PARA SECCIÓN MIEMBROS ===== */
-#members.section {
-  padding: 80px 5%; /* Ajuste específico para esta sección */
-  min-height: auto;
+/* ======= ESTILOS DEL CONSEJO DE LA SERPIENTE ======= */
+/* Estructura Principal */
+
+.cinzel-serif {
+  font-family: 'Cinzel', serif;
+  font-optical-sizing: auto;
+  font-weight: 12px;
+  font-style: normal;
+}
+.members-grid {
+  display: grid;
+  font-family: 'Cinzel', serif; /* Fuente gótica/mística */
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+
 }
 
-#members .section-title {
-  font-size: 2.8rem; /* Tamaño especial para esta sección */
+/* Pareja Real - Horizontal */
+.royal-couple {
+  font-family: 'Cinzel', serif; /* Fuente gótica/mística */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
   margin-bottom: 3rem;
+}
+
+/* Triada de Subjefes - 3 Columnas */
+.trusted-staff {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Tarjetas Base con Toque Oculto */
+.member-card {
+  background: rgba(20, 15, 25, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease;
+  border: 1px solid #322947;
+  position: relative;
+}
+
+.member-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+              #8B0000 0%, 
+              #4B0082 33%, 
+              #DAA520 66%, 
+              #C1121F 100%);
+}
+
+/* Efectos Especiales */
+.member-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(139, 0, 0, 0.3);
+  border-color: #FFD700;
+}
+
+/* Imágenes con Filtro Místico */
+.member-image {
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 2px solid #322947;
+}
+
+.member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+  filter: grayscale(20%) contrast(110%);
+}
+
+.member-card:hover .member-image img {
+  transform: scale(1.08);
+  filter: grayscale(0%) contrast(120%);
+}
+
+/* Badges de Rango Alquímico */
+.member-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  border: 2px solid;
+  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(50,50,50,0.8) 100%);
+  backdrop-filter: blur(5px);
+  letter-spacing: 1px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Colores Específicos por Rango */
+.member-badge[style*="SUMA SACERDOTISA"] {
+  background: linear-gradient(135deg, #5E1914 0%, #2D0B0B 100%) !important;
+  border-color: #FFD700 !important;
+  font-size: 13px;
+}
+
+.member-badge[style*="GUARDIÁN"] {
+  background: linear-gradient(135deg, #8B0000 0%, #450A0A 100%) !important;
+  border-color: #000 !important;
+}
+
+.member-badge[style*="ARCANO"] {
+  background: linear-gradient(135deg, #4B0082 0%, #2E1A47 100%) !important;
+  border-color: #9370DB !important;
+}
+
+.member-badge[style*="ALQUIMISTA"] {
+  background: linear-gradient(135deg, #DAA520 0%, #8C6D1F 100%) !important;
+  border-color: #FFD700 !important;
+}
+
+.member-badge[style*="VERDUGO"] {
+  background: linear-gradient(135deg, #C1121F 0%, #5E0B12 100%) !important;
+  border-color: #FF9999 !important;
+}
+
+/* Contenido de las Tarjetas */
+.member-info {
+  padding: 1.8rem;
+  background: linear-gradient(180deg, rgba(30,25,35,0.9) 0%, rgba(15,10,20,0.9) 100%);
+}
+
+.member-info h3 {
+  margin: 0 0 10px;
+  font-size: 1.6rem;
+  color: #FFD700;
+  font-family: 'Cinzel Decorative';
+  letter-spacing: 1px;
+  border-bottom: 1px solid #4B0082;
+  padding-bottom: 8px;
+}
+
+.member-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+}
+
+.member-meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 215, 0, 0.08);
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.member-meta i {
+  color: #9370DB;
+}
+
+/* Secciones Especiales */
+.member-lore {
+  background: rgba(10, 5, 15, 0.7);
+  border-left: 3px solid #8B0000;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+}
+
+.member-lore::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 20px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%238B0000"><path d="M12,2L4,12L12,22L20,12L12,2Z"/></svg>') no-repeat;
+  opacity: 0.3;
+}
+
+.member-lore h4 {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  color: #DAA520;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.member-lore h4::before {
+  content: '✧';
+  color: #9370DB;
+}
+
+.member-lore ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+.member-lore li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: 20px;
+}
+
+.member-lore li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: #C1121F;
+  font-weight: bold;
+}
+
+/* Título de Sección */
+.section-title {
   text-align: center;
-  display: block; /* Cambio importante */
-  color: #ffffff;
+  font-size: 2.5rem;
+  color: #FFD700;
+  margin-bottom: 2rem;
+  position: relative;
 }
 
-#members .section-title::after {
-  width: 120px; /* Más largo para títulos centrados */
-  left: 50%;
-  transform: translateX(-50%);
-  background: #FFD700;
-  bottom: -15px;
+.section-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #8B0000, #4B0082, #DAA520);
+  margin: 10px auto;
+  border-radius: 3px;
 }
 
-#members .section-content {
-  background: transparent; /* Anulamos el fondo del contenedor general */
-  border-left: none;
-  padding: 0;
-  backdrop-filter: none;
-}
-
-/* ===== MEDIA QUERIES ESPECÍFICOS ===== */
-@media (max-width: 992px) {
-  #members.section {
-    padding: 60px 5%;
-  }
-  
-  #members .section-title {
-    font-size: 2.2rem;
-  }
-}
-
+/* Responsive */
 @media (max-width: 768px) {
-  #members.section {
-    padding: 50px 3%;
+  .royal-couple,
+  .trusted-staff {
+    grid-template-columns: 1fr;
   }
   
-  #members .section-title {
+  .member-image {
+    height: 240px;
+  }
+  
+  .section-title {
     font-size: 2rem;
-    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .member-meta {
+    flex-direction: column;
   }
   
-  #members .section-title::after {
-    width: 80px;
+  .member-badge {
+    font-size: 10px;
+    padding: 4px 10px;
   }
 }
 .cta-buttons {
