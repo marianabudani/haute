@@ -26,37 +26,35 @@ document.addEventListener('DOMContentLoaded', function() {
         allVideos[currentVideo].classList.add('active');
     }, 8000);
 
-    function setupMainTabs() {
-        const tabButtons = document.querySelectorAll('.attire-tab');
-        const tabContents = document.querySelectorAll('.attire-content');
+    // Configuración de tabs principal
+function setupMainTabs() {
+    const tabButtons = document.querySelectorAll('.attire-tab');
+    const tabContents = document.querySelectorAll('.attire-content');
     
-        tabButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Remover active de todos los botones y contenidos
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-                
-                // Agregar active al botón clickeado
-                this.classList.add('active');
-                
-                // Mostrar el contenido correspondiente
-                const tabId = this.getAttribute('data-tab');
-                document.getElementById(`${tabId}-tab`).classList.add('active');
-                
-                // Aplicar filtro de género al cambiar de pestaña
-                applyGenderFilter();
-            });
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remover active de todos los botones y contenidos
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Agregar active al botón clickeado
+            this.classList.add('active');
+            
+            // Mostrar el contenido correspondiente
+            const tabId = this.getAttribute('data-tab');
+            document.getElementById(`${tabId}-tab`).classList.add('active');
+            
+            // Aplicar filtro de género
+            applyGenderFilter();
         });
-    }
-
-    // 3. Sistema de filtros solo por género
-    // 3. Sistema de filtros por género (adaptado)
+    });
+}
+// Sistema de filtro por género
 let currentGender = 'male';
 
 function setupGenderFilter() {
     const genderButtons = document.querySelectorAll('.gender-btn');
     
-    // Eventos para botones de género
     genderButtons.forEach(button => {
         button.addEventListener('click', function() {
             // Remover active de todos los botones de género
@@ -65,40 +63,32 @@ function setupGenderFilter() {
             // Agregar active al botón clickeado
             this.classList.add('active');
             
-            // Actualizar filtro de género
+            // Actualizar género actual
             currentGender = this.getAttribute('data-gender');
             
-            // Aplicar filtros
+            // Aplicar filtro
             applyGenderFilter();
         });
     });
 }
 
+// Función para aplicar el filtro por género
 function applyGenderFilter() {
     const activeTab = document.querySelector('.attire-content.active');
     if (!activeTab) return;
     
-    // Ocultar todos primero
-    const allPairs = activeTab.querySelectorAll('.uniform-pair');
-    allPairs.forEach(pair => {
-        pair.style.display = 'none';
-        pair.style.opacity = '0';
-        pair.style.height = '0';
-        pair.style.overflow = 'hidden';
+    // Ocultar todos los uniform-pairs primero
+    activeTab.querySelectorAll('.uniform-pair').forEach(pair => {
+        pair.classList.remove('visible');
     });
     
     // Mostrar solo los del género seleccionado
-    setTimeout(() => {
-        allPairs.forEach(pair => {
-            if (pair.getAttribute('data-gender') === currentGender) {
-                pair.style.display = 'flex';
-                pair.style.opacity = '1';
-                pair.style.height = 'auto';
-                pair.style.overflow = 'visible';
-            }
-        });
-    }, 50);
+    activeTab.querySelectorAll(`.uniform-pair[data-gender="${currentGender}"]`).forEach(pair => {
+        pair.classList.add('visible');
+    });
 }
+
+
 function initAttireSection() {
     // Configurar el grid dinámicamente
     const style = document.createElement('style');
@@ -418,6 +408,10 @@ function initAttireSection() {
         });
     }
     // Inicializar todos los componentes
+    // Aplicar filtro inicial
+    setTimeout(() => {
+        applyGenderFilter();
+    }, 100);
     setupMainTabs();
     setupTaskTabs();
     setupUniformLayout();
