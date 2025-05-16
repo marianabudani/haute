@@ -1,0 +1,9 @@
+services:
+
+  hauteapp:
+    build: .
+    image: mbudani/haute:v1
+    container_name: hauteapp
+    ports:
+      - "9000:3000"
+    restart: unless-stopped
