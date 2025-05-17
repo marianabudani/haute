@@ -385,41 +385,12 @@ function initAttireSection() {
         window.addEventListener('load', adjustMarkerPosition);
         window.addEventListener('resize', adjustMarkerPosition);
     }
-    function setupTaskTabs() {
-        const tabButtons = document.querySelectorAll('.task-tab');
-        const tabContents = document.querySelectorAll('.task-content');
-        
-        tabButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Remover active de todos los botones y contenidos
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-                
-                // Agregar active al botón clickeado
-                this.classList.add('active');
-                
-                // Mostrar el contenido correspondiente
-                const tabId = this.getAttribute('data-tab');
-                const contentToShow = document.getElementById(`${tabId}-tab`);
-                if (contentToShow) {
-                    contentToShow.classList.add('active');
-                }
-            });
-        });
-        
-        // Activar la primera pestaña por defecto si no hay ninguna activa
-        if (document.querySelectorAll('.task-tab.active').length === 0) {
-            tabButtons[0]?.classList.add('active');
-            tabContents[0]?.classList.add('active');
-        }
-    }
-    // Inicializar todos los componentes
+ 
     // Aplicar filtro inicial
     setTimeout(() => {
         applyGenderFilter();
     }, 100);
     setupMainTabs();
-    setupTaskTabs();
     setupUniformLayout();
     setupGenderFilter();
     initAttireSection();
