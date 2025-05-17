@@ -400,9 +400,18 @@ function initAttireSection() {
                 
                 // Mostrar el contenido correspondiente
                 const tabId = this.getAttribute('data-tab');
-                document.getElementById(`${tabId}-tab`).classList.add('active');
+                const contentToShow = document.getElementById(`${tabId}-tab`);
+                if (contentToShow) {
+                    contentToShow.classList.add('active');
+                }
             });
         });
+        
+        // Activar la primera pestaña por defecto si no hay ninguna activa
+        if (document.querySelectorAll('.task-tab.active').length === 0) {
+            tabButtons[0]?.classList.add('active');
+            tabContents[0]?.classList.add('active');
+        }
     }
     // Inicializar todos los componentes
     // Aplicar filtro inicial

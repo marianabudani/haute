@@ -1,109 +1,127 @@
 <!-- Sección de Tareas -->
 <section id="tasks" class="section">
-    <div class="section-content">
-        <h2 class="section-title">OPERACIONES HAUTE</h2>
-        
-        <div class="task-tabs">
-            <button class="task-tab active" data-tab="legal">OPERACIONES LEGALES</button>
-            <button class="task-tab" data-tab="illegal">ACUERDOS ESPECIALES</button>
-            <button class="task-tab" data-tab="staff">VESTUARIO Y RANGOS</button> <!-- Nueva pestaña -->
-        </div>
-        
-        <!-- Panel Legal - Tareas Clásicas + Innovadoras -->
-        <div class="task-content active" id="legal-tab">
-            <!-- Tareas Diarias Básicas (Añadidas) -->
-            <div class="task-item">
-                <i class="fas fa-clipboard-list"></i>
-                <div>
-                    <h3>OPERATIVA DIARIA</h3>
-                    <ul>
-                        <li><strong>Apertura/cierre:</strong> Control de inventario (bebidas, alimentos), limpieza profunda, revisión de equipos (sonido, iluminación).</li>
-                        <li><strong>Turnos:</strong> Rotación de bartenders, seguridad y personal de limpieza (2 turnos: 18:00-00:00 / 00:00-4:00).</li>
-                        <li><strong>Proveedores:</strong> Pedidos a distribuidores los lunes y jueves (registro en libro contable).</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Eventos (Mejorado con Precios) -->
-            <div class="task-item">
-                <i class="fas fa-calendar-alt"></i>
-                <div>
-                    <h3>EVENTOS SEMANALES</h3>
-                    <ul>
-                        <li><strong>Jueves - Noche de Lujuria:</strong> Shows eróticos + cócteles temáticos ($1,500 entrada, $3,000 mesa VIP).</li>
-                        <li><strong>Sábado - Talentos Ocultos:</strong> Concurso con jurado (premio: $10,000 + contrato mensual).</li>
-                        <li><strong>Protocolos:</strong> Lista de invitados, control de aforo, seguridad en zonas VIP (2 guardias mínimo).</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Colaboraciones (Detalladas) -->
-            <div class="task-item">
-                <i class="fas fa-handshake"></i>
-                <div>
-                    <h3>COLABORACIONES CON NEGOCIOS</h3>
-                    <ul>
-                        <li><strong>Paquete "Lujo y Misterio":</strong> Incluye cena en restaurante aliado + sesión de tarot en Haute ($2,100 por pareja).</li>
-                        <li><strong>Acuerdos de seguridad:</strong> Intercambio de personal con el Casino Diamond (ej: 2 guardias por noche).</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Programa Seguidores (Con Beneficios Claros) -->
-            <div class="task-item">
-                <i class="fas fa-users"></i>
-                <div>
-                    <h3>PROGRAMA "SEGUIDORES DE LAS SOMBRAS"</h3>
-                    <ul>
-                        <li><strong>Requisitos:</strong> Promocionar el Haute 3 veces/semana en RP (ej: fotos en redes IC).</li>
-                        <li><strong>Beneficios:</strong> 20% descuento en bebidas + acceso a área VIP 1 noche/semana.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Panel Ilegal - Más Específico -->
-        <div class="task-content" id="illegal-tab">
-            <div class="task-item">
-                <i class="fas fa-money-bill-wave"></i>
-                <div>
-                    <h3>LAVADO DE DINERO (STB)</h3>
-                    <ul>
-                        <li><strong>Método:</strong> Facturas falsas de catering/eventos (sobreprecio del 300%).</li>
-                        <li><strong>Retorno:</strong> STB recibe 60% del dinero "limpiado".</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="task-item">
-                <i class="fas fa-box"></i>
-                <div>
-                    <div class="illegal-service">
-                        <h3>🕳️ Almacén "Fantasma"</h3>
-                        <p><em>"¿Necesitas guardar algo? El sótano del Haute tiene espacio... si pasas la prueba."</em></p>
-                        <ul>
-                            <li>Requiere <u>RP previo</u> con Juanjo o Carmilla (negociación IC).</li>
-                            <li>Costo: 10% del valor del objeto (o favores en RP).</li>
-                            <li>Si la policía registra el local, <u>no hay garantías</u> (riesgo IC).</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Nueva Pestaña: Vestuario y Rangos -->
-        <div class="task-content" id="staff-tab">
-            <div class="task-item">
-                <i class="fas fa-tshirt"></i>
-                <div>
-                    <h3>CÓDIGO DE VESTIMENTA</h3>
-                    <ul>
-                        <li><strong>Staff básico:</strong> Camisa negra + chaleco rojo (logo Haute bordado).</li>
-                        <li><strong>VIP Hosts:</strong> Traje oscuro + corbata dorada (acceso a comunicador cifrado).</li>
-                        <li><strong>STB:</strong> Sudadera roja (sólo en zonas restringidas).</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+  <div class="section-content">
+    <h2 class="section-title">OPERACIONES HAUTE</h2>
+
+    <div class="task-tabs">
+      <button class="task-tab active" data-tab="legal">OPERACIONES LEGALES</button>
+      <button class="task-tab" data-tab="illegal">ACUERDOS ESPECIALES</button>
+      <button class="task-tab" data-tab="staff">ESTRUCTURA Y UNIFORMES</button>
     </div>
+
+    <!-- Panel Legal -->
+    <div class="task-content active" id="legal-tab">
+      <div class="task-item">
+        <i class="fas fa-clipboard-list"></i>
+        <div>
+          <h3>OPERATIVA DIARIA</h3>
+          <ul>
+            <li><strong>Apertura y cierre:</strong> Revisión de stock (bebidas, alimentos), chequeo técnico (luces, sonido), limpieza del salón.</li>
+            <li><strong>Gestión de personal:</strong> Se organizan dos turnos para bartenders, limpieza y seguridad.</li>
+            <li><strong>Atención al cliente:</strong> Recepción en puerta, manejo de listas VIP, gestión de conflictos o reportes IC.</li>
+            <li><strong>Proveedores:</strong> Pedidos los lunes y jueves. Se archivan facturas en el libro contable del despacho.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <i class="fas fa-calendar-alt"></i>
+        <div>
+          <h3>EVENTOS REGULARES</h3>
+          <ul>
+            <li><strong>Jueves - Noche de Lujuria:</strong> Espectáculos sensuales + cócteles temáticos. Entrada: $500 | Mesa VIP: $1,200.</li>
+            <li><strong>Sábados - Talentos Ocultos:</strong> Concurso abierto a civiles (Premio: $10,000 + contrato por 1 mes).</li>
+            <li><strong>Logística:</strong> Seguridad mínima de 2 agentes en zona VIP, control de aforo y registro de lista de invitados.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <i class="fas fa-handshake"></i>
+        <div>
+          <h3>COLABORACIONES EMPRESARIALES</h3>
+          <ul>
+            <li><strong>Pack "Lujo & Misterio":</strong> Incluye cena en restaurante asociado + sesión privada de tarot en Haute ($800 por pareja).</li>
+            <li><strong>Intercambio de seguridad:</strong> Se coordinan 2 guardias con Casino Diamond para eventos conjuntos.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <i class="fas fa-users"></i>
+        <div>
+          <h3>PROGRAMA DE PROMOTORES "SOMBRAS DEL HAUTE"</h3>
+          <ul>
+            <li><strong>Requisitos:</strong> Postear mínimo 3 veces/semana en redes IC mencionando el Haute.</li>
+            <li><strong>Beneficios:</strong> 20% en bebidas + acceso a zona VIP 1 vez por semana.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel Ilegal -->
+    <div class="task-content" id="illegal-tab">
+      <div class="task-item">
+        <i class="fas fa-money-bill-wave"></i>
+        <div>
+          <h3>OPERACIÓN DE FONDOS (CON STB)</h3>
+          <ul>
+            <li><strong>Método:</strong> Se emiten facturas infladas por eventos privados.</li>
+            <li><strong>Distribución:</strong> STB recibe el 15% de los fondos "limpios".</li>
+            <li><strong>Encargado:</strong> Alejandra Rodriguez supervisa registros y pagos IC.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <i class="fas fa-box-open"></i>
+        <div>
+          <h3>DEPÓSITO “FANTASMA”</h3>
+          <ul>
+            <li>Ubicado en el sótano del club. Uso sólo tras acuerdo IC con Carmilla o Juanjo.</li>
+            <li>Coste del servicio: 10% del valor estimado del objeto (o trato IC).</li>
+            <li>Condiciones: En caso de redadas IC, el contenido puede ser comprometido.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel Staff -->
+    <div class="task-content" id="staff-tab">
+      <div class="task-item">
+        <i class="fas fa-sitemap"></i>
+        <div>
+          <h3>ESTRUCTURA DE PERSONAL</h3>
+          <ul>
+            <li><strong>Jefa (Carmilla):</strong> Supervisión general, toma de decisiones estratégicas y eventos.</li>
+            <li><strong>Subjefe (Alejandra):</strong> Finanzas, agenda de proveedores, coordinación de STB.</li>
+            <li><strong>VIP Hosts:</strong> Atención personalizada, relaciones públicas y recepción VIP. Acceso a radio interna.</li>
+            <li><strong>Bartenders y meseros:</strong> Preparación de tragos, servicio al cliente y control de caja chica.</li>
+            <li><strong>Seguridad:</strong> Control de entrada, zona VIP y respuesta a conflictos IC.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <i class="fas fa-tshirt"></i>
+        <div>
+          <h3>VESTUARIO Y CÓDIGO DE IMAGEN</h3>
+          <ul>
+            <li><strong>Staff regular:</strong> Camisa negra + chaleco rojo con insignia bordada de Haute.</li>
+            <li><strong>VIP Hosts:</strong> Traje oscuro + corbata dorada. Acceso a comunicador cifrado.</li>
+            <li><strong>Miembros STB (zona restringida):</strong> Sudadera roja con su distintivo de perteneciente a la familia.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+<style>
+    .task-content {
+        display: none;
+    }
+
+    .task-content.active {
+        display: block;
+    }
+</style>
