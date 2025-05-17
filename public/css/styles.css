@@ -272,7 +272,7 @@ a {
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   transition: all 0.4s ease;
-  border: 1px solid #322947;
+  border: 1px solid #472929;
   position: relative;
 }
 
@@ -285,7 +285,7 @@ a {
   height: 3px;
   background: linear-gradient(90deg, 
               #8B0000 0%, 
-              #4B0082 33%, 
+              #820016 33%, 
               #DAA520 66%, 
               #C1121F 100%);
 }
@@ -302,7 +302,7 @@ a {
   height: 280px;
   position: relative;
   overflow: hidden;
-  border-bottom: 2px solid #322947;
+  border-bottom: 2px solid #47292a;
 }
 
 .member-image img {
@@ -351,7 +351,7 @@ a {
 
 .member-badge[style*="ARCANO"] {
   background: linear-gradient(135deg, #4B0082 0%, #2E1A47 100%) !important;
-  border-color: #9370DB !important;
+  border-color: #db7070 !important;
 }
 
 .member-badge[style*="ALQUIMISTA"] {
@@ -376,7 +376,7 @@ a {
   color: #FFD700;
   font-family: 'Cinzel Decorative';
   letter-spacing: 1px;
-  border-bottom: 1px solid #4B0082;
+  border-bottom: 1px solid #820011;
   padding-bottom: 8px;
 }
 
@@ -399,12 +399,12 @@ a {
 }
 
 .member-meta i {
-  color: #9370DB;
+  color: #db7075;
 }
 
 /* Secciones Especiales */
 .member-lore {
-  background: rgba(10, 5, 15, 0.7);
+  background: rgba(15, 5, 5, 0.7);
   border-left: 3px solid #8B0000;
   padding: 15px;
   margin: 20px 0;
@@ -434,7 +434,7 @@ a {
 
 .member-lore h4::before {
   content: '✧';
-  color: #9370DB;
+  color: #db7079;
 }
 
 .member-lore ul {
@@ -472,7 +472,7 @@ a {
   display: block;
   width: 100px;
   height: 3px;
-  background: linear-gradient(90deg, #8B0000, #4B0082, #DAA520);
+  background: linear-gradient(90deg, #8B0000, #82002b, #DAA520);
   margin: 10px auto;
   border-radius: 3px;
 }
