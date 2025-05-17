@@ -1,5 +1,5 @@
 <section class="section dark-section" id="objetivos">
-  <h2 class="section-title">OBJETIVOS: LUZ Y SOMBRA</h2>
+  <h2 class="section-title2">OBJETIVOS: LUZ Y SOMBRA</h2>
   
   <!-- Profecía con propósito claro -->
   <div class="blood-pact">
@@ -97,6 +97,24 @@
                       <li>🍸 <u>Cócteles señal:</u> 3 "Bloody Mary" = alerta de redada (evacuación por túneles).</li>
                   </ul>
               </div>
+              <div class="prophecy-card">
+                <h3>🗝️ Profecías Personalizadas</h3>
+                <p><em>"La Sacerdotisa ve... peligro en tu futuro."</em></p>
+                <ul>
+                    <li>Pide una lectura de tarot IC.</li>
+                    <li>Recibirás una pista <u>basada en rumores IC reales</u>.</li>
+                    <li>Usa la info para tu beneficio... o ignórala bajo tu riesgo.</li>
+                </ul>
+              </div>
+              <div class="protection-card">
+                <h3>🛡️ Protección Ritual</h3>
+                <p><em>"Nuestras brujas pueden 'maldecir' a tus enemigos... si ambos aceptan el RP."</em></p>
+                <ul>
+                    <li>El cliente pide un "ritual" contra alguien (Se requerira información via web con pruebas).</li>
+                    <li>Carmilla contacta al objetivo para negociar efectos (ej: -$5000 por "mala suerte").</li>
+                    <li><strong>Regla:</strong> Ambos deben aceptar OOC los términos.</li>
+                </ul>
+              </div>
           </div>
       </div>
 
@@ -114,3 +132,292 @@
       </div>
   </div>
 </section>
+<style>
+  /* ESTILOS SECCIÓN OBJETIVOS */
+.section-title2 {
+  font-family: 'Cinzel', serif;
+  color: #ffcc00;
+  text-align: center;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+/* Pacto Fundacional */
+.blood-pact {
+  background: rgba(42, 11, 58, 0.7);
+  border-left: 4px solid #8a2be2;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  position: relative;
+  text-align: center;
+}
+
+.pact-symbol {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #e63946;
+}
+
+.blood-drip {
+  height: 20px;
+  background: url('https://example.com/sangre-goteo.png') center bottom no-repeat;
+  margin-top: 1rem;
+}
+
+.pact-text {
+  font-style: italic;
+  color: #d8bfd8;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.pact-text strong {
+  color: #ffcc00;
+}
+
+/* Contenedor Principal */
+.objectives-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Objetivo Principal */
+.objective-main {
+  background: rgba(20, 10, 30, 0.8);
+  border: 1px solid #4b0082;
+  border-radius: 5px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.objective-icon {
+  font-size: 2.5rem;
+  color: #8a2be2;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.objective-main h3 {
+  color: #ffcc00;
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.reality-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.reality-list li {
+  background: rgba(90, 42, 130, 0.2);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-left: 3px solid #ffcc00;
+}
+
+/* Grid de Objetivos */
+.objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.objective-card {
+  background: rgba(30, 15, 45, 0.7);
+  border: 1px solid #5a2a82;
+  padding: 1.5rem;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.objective-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.objective-number {
+  font-family: 'Cinzel', serif;
+  color: #8a2be2;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.objective-card h4 {
+  color: #d8bfd8;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #4b0082;
+  padding-bottom: 0.5rem;
+}
+
+.objective-details {
+  list-style-type: none;
+  padding-left: 0;
+  color: #c0c0c0;
+}
+
+.objective-details li {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.objective-details ul {
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+  list-style-type: square;
+}
+
+.objective-details u {
+  text-decoration: none;
+  color: #ffcc00;
+}
+
+.objective-metric {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #5a2a82;
+  color: #8a2be2;
+  font-style: italic;
+}
+
+.occult-tier {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.occult-tier li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.occult-tier li:before {
+  content: "•";
+  color: #8a2be2;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+/* Tareas Diarias */
+.daily-tasks {
+  background: rgba(20, 10, 30, 0.8);
+  padding: 2rem;
+  border-radius: 5px;
+  margin-bottom: 3rem;
+  border: 1px solid #5a2a82;
+}
+
+.daily-tasks h3 {
+  color: #ffcc00;
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.task-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.task-col {
+  background: rgba(42, 11, 58, 0.5);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.task-col h4 {
+  color: #d8bfd8;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.task-col ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.task-col li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #c0c0c0;
+}
+
+.task-col li:before {
+  content: "»";
+  color: #8a2be2;
+  position: absolute;
+  left: 0;
+}
+
+/* Cartas Especiales */
+.prophecy-card, .protection-card {
+  background: rgba(70, 30, 90, 0.6);
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin-top: 2rem;
+  border-left: 4px solid #e63946;
+}
+
+.prophecy-card h3, .protection-card h3 {
+  color: #ffcc00;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.prophecy-card em, .protection-card em {
+  color: #d8bfd8;
+  font-style: italic;
+}
+
+/* Reglas de Hierro */
+.objective-card.dark {
+  background: rgba(15, 5, 25, 0.9);
+  border: 1px solid #e63946;
+}
+
+.contract-content {
+  color: #c0c0c0;
+}
+
+.contract-content ol {
+  padding-left: 1.5rem;
+}
+
+.contract-content li {
+  margin-bottom: 0.8rem;
+}
+
+.blood-note {
+  color: #e63946;
+  font-style: italic;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .objectives-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .task-columns {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title2 {
+    font-size: 2rem;
+  }
+}
+</style>
