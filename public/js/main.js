@@ -95,7 +95,6 @@ function initAttireSection() {
     style.textContent = `
         .members-grid, .attire-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             justify-content: center;
             max-width: 1200px;
@@ -105,7 +104,6 @@ function initAttireSection() {
         
         .uniform-pair {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             transition: all 0.4s ease-out;
         }
@@ -152,7 +150,6 @@ function initAttireSection() {
         style.textContent = `
             .attire-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
                 gap: 2rem;
             }
             
