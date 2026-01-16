@@ -14,8 +14,8 @@
   --overlay: rgba(0, 0, 0, 0.7);
   --transition: all 0.3s ease;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 8px 15px rgba(255, 0, 54, 0.3);
-  }
+  --shadow-hover: 0 8px 15px rgba(255, 0, 54, 0.3);
+}
 
 /* Base Styles */
 * {
@@ -29,12 +29,13 @@ html {
 }
 
 body {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Macondo', cursive;
   background-color: var(--bg-dark);
   color: var(--text-light);
   line-height: 1.6;
   overflow-x: hidden;
 }
+
 /* Menu mobile */
 .menu-toggle {
   display: none;
@@ -160,8 +161,8 @@ a {
 
 /* Navigation */
 .nav-links {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .nav-link {
@@ -198,7 +199,7 @@ a {
 /* Sections */
 .section {
   padding: 100px 10%;
-  min-height: auto; /* Eliminamos el min-height: 100vh */
+  min-height: auto;
 }
 
 .section-title {
@@ -207,7 +208,6 @@ a {
   position: relative;
   display: inline-block;
 }
-
 
 .section-title::after {
   content: '';
@@ -228,44 +228,430 @@ a {
   backdrop-filter: blur(5px);
   border-radius: 0 8px 8px 0;
 }
-/* ===== ESTILOS COMPATIBLES PARA SECCIÓN MIEMBROS ===== */
-/* ======= ESTILOS DEL CONSEJO DE LA SERPIENTE ======= */
-/* Estructura Principal */
 
-.cinzel-serif {
-  font-family: 'Cinzel', serif;
-  font-optical-sizing: auto;
-  font-weight: 12px;
-  font-style: normal;
+/* ===== HISTORIA - ESTILOS MEJORADOS ===== */
+.history-container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
-.members-grid {
+
+.history-chapter {
   display: grid;
-  font-family: 'Cinzel', serif; /* Fuente gótica/mística */
-  grid-template-columns: 1fr;
-  gap: 3rem;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
-
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+  background: var(--overlay);
+  padding: 40px;
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  transition: var(--transition);
+  align-items: start;
 }
 
-/* Pareja Real - Horizontal */
-.royal-couple {
-  font-family: 'Cinzel', serif; /* Fuente gótica/mística */
+.history-chapter:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.history-chapter.reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+.history-text {
+  flex: 1;
+  font-size: 1.4rem;
+  width: 100%;
+}
+
+.history-text h3 {
+  color: var(--primary);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px rgba(255, 0, 54, 0.5);
+}
+
+.history-text p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.history-image {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.history-img {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 15px rgba(255, 0, 54, 0.3);
+  transition: transform 0.5s;
+  border-radius: 4px;
+}
+
+.history-img:hover {
+  transform: scale(1.03);
+}
+
+.image-caption {
+  text-align: center;
+  font-style: italic;
+  margin-top: 10px;
+  color: var(--text-gray);
+  font-size: 0.9rem;
+}
+
+.history-list {
+  padding-left: 25px;
+  margin: 20px 0;
+}
+
+.history-list li {
+  margin-bottom: 12px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.history-list li::before {
+  content: '•';
+  color: var(--primary);
+  font-weight: bold;
+  position: absolute;
+  left: -15px;
+}
+
+.haute-estructura {
+  background: rgba(139, 0, 0, 0.2);
+  border-left: 3px solid #8B0000;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+
+.disclaimer {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-gray);
+  margin-top: 15px;
+}
+
+/* ===== OBJETIVOS - ESTILOS COMPLETOS ===== */
+#objetivos {
+  padding: 80px 5%;
+}
+
+.section-title2 {
+  font-family: 'Macondo', cursive;
+  color: #ffcc00;
+  text-align: center;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.blood-pact {
+  background: rgba(58, 11, 11, 0.7);
+  border-left: 4px solid #a81111;
+  padding: 2rem;
+  margin: 2rem 0;
+  position: relative;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.pact-symbol {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #e63946;
+}
+
+.blood-drip {
+  height: 20px;
+  margin-top: 1rem;
+}
+
+.pact-text {
+  font-style: italic;
+  color: #d8bfd8;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.pact-text strong {
+  color: #ffcc00;
+}
+
+.objectives-container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.objective-main {
+  background: rgba(30, 10, 10, 0.8);
+  border: 1px solid #82001c;
+  border-radius: 8px;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.objective-icon {
+  font-size: 2.5rem;
+  color: #e22b2b;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.objective-main h3 {
+  color: #ffcc00;
+  font-family: 'Macondo', cursive;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.reality-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.reality-list li {
+  background: rgba(130, 42, 42, 0.2);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-left: 3px solid #ffcc00;
+  border-radius: 4px;
+}
+
+.objectives-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2.5rem;
+  gap: 2rem;
   margin-bottom: 3rem;
 }
 
-/* Triada de Subjefes - 3 Columnas */
-.trusted-staff {
+.objective-card {
+  background: rgba(45, 15, 15, 0.7);
+  border: 1px solid #822a2a;
+  padding: 2rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.objective-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.objective-number {
+  font-family: 'Macondo', cursive;
+  color: #e22b2b;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.objective-card h4 {
+  color: #d8bfd8;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #820000;
+  padding-bottom: 0.5rem;
+}
+
+.objective-details {
+  list-style-type: none;
+  padding-left: 0;
+  color: #c0c0c0;
+  flex-grow: 1;
+}
+
+.objective-details li {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.objective-details ul {
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+  list-style-type: square;
+}
+
+.objective-details u {
+  text-decoration: none;
+  color: #ffcc00;
+}
+
+.objective-metric {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px dashed #822a2a;
+  color: #e22b2b;
+  font-style: italic;
+}
+
+.occult-tier {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.occult-tier li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.occult-tier li:before {
+  content: "•";
+  color: #e22b2b;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.daily-tasks {
+  background: rgba(30, 10, 10, 0.8);
+  padding: 3rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+  border: 1px solid #822a2a;
+}
+
+.daily-tasks h3 {
+  color: #ffcc00;
+  font-family: 'Macondo', cursive;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.task-columns {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
-/* Tarjetas Base con Toque Oculto */
+.task-col {
+  background: rgba(58, 11, 11, 0.5);
+  padding: 1.5rem;
+  border-radius: 8px;
+  height: 100%;
+}
+
+.task-col h4 {
+  color: #d8bfd8;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.task-col ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.task-col li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #c0c0c0;
+}
+
+.task-col li:before {
+  content: "»";
+  color: #e22b2b;
+  position: absolute;
+  left: 0;
+}
+
+.prophecy-card, .protection-card {
+  background: rgba(90, 30, 30, 0.6);
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 4px solid #e63946;
+  height: 100%;
+}
+
+.prophecy-card h3, .protection-card h3 {
+  color: #ffcc00;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.prophecy-card em, .protection-card em {
+  color: #d8bfc2;
+  font-style: italic;
+}
+
+.objective-card.dark {
+  background: rgba(25, 5, 5, 0.9);
+  border: 1px solid #e63946;
+}
+
+.contract-content {
+  color: #c0c0c0;
+}
+
+.contract-content ol {
+  padding-left: 1.5rem;
+}
+
+.contract-content li {
+  margin-bottom: 0.8rem;
+}
+
+.blood-note {
+  color: #e63946;
+  font-style: italic;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ===== MIEMBROS - ESTILOS COMPLETOS ===== */
+
+.macondo-regular {
+  font-family: "Macondo", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.members-grid {
+  display: grid;
+  font-family: 'Macondo', cursive;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.royal-couple {
+  font-family: 'Macondo', cursive;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.trusted-staff {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
 .member-card {
   background: rgba(20, 15, 25, 0.9);
   border-radius: 12px;
@@ -274,6 +660,9 @@ a {
   transition: all 0.4s ease;
   border: 1px solid #472929;
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .member-card::before {
@@ -290,16 +679,14 @@ a {
               #C1121F 100%);
 }
 
-/* Efectos Especiales */
 .member-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 25px rgba(139, 0, 0, 0.3);
   border-color: #FFD700;
 }
 
-/* Imágenes con Filtro Místico */
 .member-image {
-  height: 280px;
+  height: 320px;
   position: relative;
   overflow: hidden;
   border-bottom: 2px solid #47292a;
@@ -309,6 +696,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.7s ease;
   filter: grayscale(20%) contrast(110%);
 }
@@ -318,14 +706,13 @@ a {
   filter: grayscale(0%) contrast(120%);
 }
 
-/* Badges de Rango Alquímico */
 .member-badge {
   position: absolute;
   top: 15px;
   right: 15px;
   padding: 6px 15px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
   color: white;
@@ -337,44 +724,19 @@ a {
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
-/* Colores Específicos por Rango */
-.member-badge[style*="SUMA SACERDOTISA"] {
-  background: linear-gradient(135deg, #5E1914 0%, #2D0B0B 100%) !important;
-  border-color: #FFD700 !important;
-  font-size: 13px;
-}
-
-.member-badge[style*="GUARDIÁN"] {
-  background: linear-gradient(135deg, #8B0000 0%, #450A0A 100%) !important;
-  border-color: #000 !important;
-}
-
-.member-badge[style*="ARCANO"] {
-  background: linear-gradient(135deg, #4B0082 0%, #2E1A47 100%) !important;
-  border-color: #db7070 !important;
-}
-
-.member-badge[style*="ALQUIMISTA"] {
-  background: linear-gradient(135deg, #DAA520 0%, #8C6D1F 100%) !important;
-  border-color: #FFD700 !important;
-}
-
-.member-badge[style*="VERDUGO"] {
-  background: linear-gradient(135deg, #C1121F 0%, #5E0B12 100%) !important;
-  border-color: #FF9999 !important;
-}
-
-/* Contenido de las Tarjetas */
 .member-info {
   padding: 1.8rem;
   background: linear-gradient(180deg, rgba(30,25,35,0.9) 0%, rgba(15,10,20,0.9) 100%);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .member-info h3 {
   margin: 0 0 10px;
   font-size: 1.6rem;
   color: #FFD700;
-  font-family: 'Cinzel Decorative';
+  font-family: 'Macondo', cursive;
   letter-spacing: 1px;
   border-bottom: 1px solid #820011;
   padding-bottom: 8px;
@@ -385,7 +747,7 @@ a {
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 15px;
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .member-meta span {
@@ -402,7 +764,6 @@ a {
   color: #db7075;
 }
 
-/* Secciones Especiales */
 .member-lore {
   background: rgba(15, 5, 5, 0.7);
   border-left: 3px solid #8B0000;
@@ -410,6 +771,7 @@ a {
   margin: 20px 0;
   border-radius: 0 8px 8px 0;
   position: relative;
+  flex-grow: 1;
 }
 
 .member-lore::after {
@@ -425,7 +787,7 @@ a {
 
 .member-lore h4 {
   margin: 0 0 10px 0;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #DAA520;
   display: flex;
   align-items: center;
@@ -445,7 +807,7 @@ a {
 
 .member-lore li {
   margin-bottom: 8px;
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   position: relative;
   padding-left: 20px;
 }
@@ -456,148 +818,6 @@ a {
   left: 0;
   color: #C1121F;
   font-weight: bold;
-}
-
-/* Título de Sección */
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #FFD700;
-  margin-bottom: 2rem;
-  position: relative;
-}
-
-.section-title::after {
-  content: '';
-  display: block;
-  width: 100px;
-  height: 3px;
-  background: linear-gradient(90deg, #8B0000, #82002b, #DAA520);
-  margin: 10px auto;
-  border-radius: 3px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .royal-couple,
-  .trusted-staff {
-    grid-template-columns: 1fr;
-  }
-  
-  .member-image {
-    height: 240px;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .member-meta {
-    flex-direction: column;
-  }
-  
-  .member-badge {
-    font-size: 10px;
-    padding: 4px 10px;
-  }
-}
-.cta-buttons {
-  margin-top: 30px;
-}
-
-/* History Section */
-.history-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.history-chapter {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  margin-bottom: 80px;
-  background: var(--overlay);
-  padding: 40px;
-  border-left: 4px solid var(--primary);
-  backdrop-filter: blur(5px);
-  border-radius: 0 8px 8px 0;
-  transition: var(--transition);
-}
-
-.history-chapter:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
-}
-
-.history-chapter.reverse {
-  flex-direction: row-reverse;
-  border-left: none;
-  border-right: 4px solid var(--primary);
-  border-radius: 8px 0 0 8px;
-}
-
-.history-text {
-  flex: 1;
-}
-
-.history-text h3 {
-  color: var(--primary);
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  text-shadow: 0 0 5px rgba(255, 0, 54, 0.5);
-}
-
-.history-list {
-  padding-left: 20px;
-  margin: 20px 0;
-}
-
-.history-list li {
-  margin-bottom: 10px;
-  position: relative;
-}
-
-.history-list li::before {
-  content: '•';
-  color: var(--primary);
-  font-weight: bold;
-  position: absolute;
-  left: -15px;
-}
-
-.history-image {
-  flex: 1;
-  position: relative;
-}
-
-.history-img {
-  width: 100%;
-  height: auto;
-  border: 2px solid var(--primary);
-  box-shadow: 0 0 15px rgba(255, 0, 54, 0.3);
-  transition: transform 0.5s;
-  border-radius: 4px;
-}
-
-.history-img:hover {
-  transform: scale(1.03);
-}
-
-.image-caption {
-  text-align: center;
-  font-style: italic;
-  margin-top: 10px;
-  color: var(--text-gray);
-  font-size: 0.9rem;
-}
-
-.disclaimer {
-  font-size: 0.8rem;
-  font-style: italic;
-  color: var(--text-gray);
-  margin-top: 15px;
 }
 
 /* Gallery Section */
@@ -659,22 +879,14 @@ a {
   margin-bottom: 10px;
 }
 
-/* Controles de selección */
-.selection-controls {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 1.5rem 0;
-  flex-wrap: wrap;
-}
-/* Location Gallery - Estilo similar a la galería principal */
+/* Location Gallery */
 .location-gallery {
   display: contents;
   margin: 40px 0;
 }
 
 .location-gallery .gallery-item {
-  height: 300px; /* Altura fija */
+  height: 300px;
   position: relative;
   overflow: hidden;
   border-radius: 8px;
@@ -692,6 +904,7 @@ a {
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s;
+  transform-origin: center center;
 }
 
 .location-gallery .gallery-item:hover img {
@@ -725,14 +938,14 @@ a {
   font-size: 1rem;
 }
 
-/* Estilo especial para el mapa */
 .location-map-item {
-  grid-column: span 2; /* El mapa ocupa doble espacio */
+  grid-column: span 2;
 }
 
 .location-map-item .gallery-overlay {
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
 }
+
 /* Location Section */
 .game-location-container {
   max-width: auto;
@@ -768,7 +981,6 @@ a {
   object-fit: cover;
   transition: transform 0.5s;
 }
-
 
 .map-marker {
   position: absolute;
@@ -892,72 +1104,9 @@ a {
   left: 0;
 }
 
-/* Footer */
-.footer {
-  padding: 40px 0;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.9);
-  border-top: 1px solid var(--primary);
+.cta-buttons {
+  margin-top: 30px;
 }
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.footer-logo {
-  height: 60px;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 5px var(--primary));
-}
-
-.social-links {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text-light);
-  transition: var(--transition);
-}
-
-.social-links a:hover {
-  background: var(--primary);
-  transform: translateY(-3px);
-}
-.location-gallery .gallery-item img {
-  transform-origin: center center;
-}
-
-/* Para sombras más intensas al hacer hover */
-.location-gallery .gallery-item:hover {
-  box-shadow: 0 10px 25px rgba(255, 0, 54, 0.4);
-}
-/* === ESTILOS GENERALES DE MIEMBROS === */
-.members-grid {
-  display: grid;
-  gap: 2rem;
-  padding: 1.5rem;
-}
-
-/* === ANIMACIONES === */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
-
 
 /* Menu Section */
 .menu-categories {
@@ -1064,6 +1213,7 @@ a {
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
+
 .combo-title {
   color: var(--primary);
   text-align: center;
@@ -1128,6 +1278,50 @@ a {
   margin-left: 10px;
 }
 
+/* Footer */
+.footer {
+  padding: 40px 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.9);
+  border-top: 1px solid var(--primary);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-logo {
+  height: 60px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 5px var(--primary));
+}
+
+.social-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+}
+
 /* Animations */
 @keyframes pulse {
   0% { transform: translate(-50%, -50%) scale(1); }
@@ -1135,19 +1329,41 @@ a {
   100% { transform: translate(-50%, -50%) scale(1); }
 }
 
-/* Responsive */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE COMPLETO ===== */
 @media (max-width: 1200px) {
   .section {
     padding: 120px 5% 80px;
   }
+  
   .location-map-item {
     grid-column: span 1;
-}
+  }
 
-.location-gallery {
+  .location-gallery {
     grid-template-columns: repeat(2, 1fr);
-}
-
+  }
+  
+  .history-chapter {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+  
+  .history-chapter.reverse {
+    grid-template-columns: 1fr;
+  }
+  
+  .objectives-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .royal-couple {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
 }
 
 @media (max-width: 992px) {
@@ -1178,13 +1394,19 @@ a {
   .history-chapter, 
   .history-chapter.reverse {
     flex-direction: column;
-    border-left: 4px solid var(--primary);
-    border-right: none;
-    border-radius: 0 8px 8px 0;
+    grid-template-columns: 1fr;
+  }
+  
+  .task-columns {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
+  #objetivos {
+    padding: 60px 3%;
+  }
+
   .menu-toggle {
     display: block;
   }
@@ -1192,12 +1414,13 @@ a {
   .location-gallery {
     grid-template-columns: 1fr;
   }
+  
   .members-grid {
     grid-template-columns: 1fr;
   }
   
   .member-image {
-    height: 200px;
+    height: 220px;
   }
   
   .member-meta {
@@ -1205,28 +1428,30 @@ a {
   }
 
   .menu-categories {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
+  
   .map-marker {
-      font-size: 2.5rem;
+    font-size: 2.5rem;
   }
+  
   .nav {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 80%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.9);
-      backdrop-filter: blur(10px);
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transition: right 0.3s ease;
-      z-index: 1000;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.3s ease;
+    z-index: 1000;
   }
   
   .nav.active {
-      right: 0;
+    right: 0;
   }
   
   .nav-links {
@@ -1243,48 +1468,63 @@ a {
   }
 
   .nav-links.active {
-      left: 0;
+    left: 0;
   }
+  
   .services-grid, .why-us-content {
     grid-template-columns: 1fr;
   }
 
-  .task-tabs {
-      flex-direction: column;
-      border-bottom: none;
+  .history-chapter {
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .history-text {
+    font-size: 1.2rem;
+  }
+  
+  .history-text h3 {
+    font-size: 2rem;
+  }
+  
+  .objectives-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .royal-couple,
+  .trusted-staff {
+    grid-template-columns: 1fr;
+  }
+  
+  .objective-main,
+  .daily-tasks {
+    padding: 1.5rem;
   }
 
-  .task-tab {
-      border-bottom: 2px solid rgba(255,255,255,0.1);
+  .section-title2 {
+    font-size: 2rem;
   }
-
-  .task-tab.active::after {
-      display: none;
-  }
-  .member-image {
-    height: 220px;
-  }
-
+  
   .member-info {
     padding: 1.2rem;
   }
-  .selection-controls {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
+  
   .gallery-row {
     flex-direction: column;
     gap: 15px;
   }
+  
   .gallery-item {
     min-height: 350px;
     max-height: none;
   }
+  
   .uniform-pair {
     display: contents; 
   }
 }
+
 @media (max-width: 576px) {
   .section-title {
     font-size: 2rem;
@@ -1313,11 +1553,24 @@ a {
     top: 43%;
     left: 47%;
   }
-  .map-marker {
-    font-size: 2rem;
-  }
 
   .location-gallery .gallery-overlay h3 {
-      font-size: 1.3rem;
+    font-size: 1.3rem;
+  }
+  
+  .history-img {
+    max-height: 400px;
+  }
+  
+  .objective-card {
+    padding: 1.5rem;
+  }
+
+  .blood-pact {
+    padding: 1.5rem;
+  }
+
+  .objective-main {
+    padding: 2rem;
   }
 }
