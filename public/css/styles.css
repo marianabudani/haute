@@ -1075,7 +1075,498 @@ p {
   left: 0;
 }
 
-/* ==================== FOOTER ==================== */
+/* ==================== TAREAS/TASKS ==================== */
+#tasks .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#tasks .section-title .highlight {
+  color: var(--primary);
+}
+
+.task-tabs-container {
+  margin: 2rem 0;
+}
+
+.task-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 2rem;
+}
+
+.task-tab {
+  background: rgba(30, 30, 46, 0.7);
+  border: none;
+  color: var(--text-light);
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.task-tab i {
+  font-size: 1.1rem;
+}
+
+.task-tab.active,
+.task-tab:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 0, 54, 0.4);
+}
+
+.task-content {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.task-content.active {
+  display: block;
+}
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.task-card {
+  background: linear-gradient(145deg, rgba(37, 37, 64, 0.8), rgba(30, 30, 56, 0.8));
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  transition: var(--transition);
+  display: flex;
+  gap: 15px;
+  border-left: 4px solid var(--primary);
+}
+
+.task-card.dark {
+  background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(15, 15, 26, 0.9));
+  border-left-color: #ff4081;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(255, 0, 54, 0.3);
+}
+
+.task-icon {
+  font-size: 2rem;
+  color: var(--primary);
+  min-width: 50px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+.task-card.dark .task-icon {
+  color: #ff4081;
+}
+
+.task-details {
+  flex: 1;
+}
+
+.task-details h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.task-card.dark h3 {
+  color: #ff4081;
+}
+
+.task-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.task-list li {
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.task-list li::before {
+  content: '▸';
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+.task-card.dark .task-list li::before {
+  color: #ff4081;
+}
+
+.task-list strong {
+  color: var(--gold);
+}
+
+.staff-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.staff-section-title {
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ==================== MENÚ/CARTA GASTRONÓMICA ==================== */
+.menu-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menu-category {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary);
+  transition: var(--transition);
+}
+
+.menu-category:hover {
+  background: rgba(255, 0, 54, 0.1);
+  transform: translateY(-5px);
+}
+
+.menu-category h3 {
+  color: var(--primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+}
+
+.menu-category h3 i {
+  font-size: 1.2rem;
+}
+
+.menu-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-category li {
+  margin-bottom: 12px;
+  padding: 8px;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.menu-item {
+  cursor: pointer;
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.menu-item:hover {
+  color: var(--gold);
+  background: rgba(255, 215, 0, 0.1);
+  padding-left: 12px;
+}
+
+/* Popup del menú */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.98), rgba(20, 20, 30, 0.98));
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  max-width: 350px;
+  backdrop-filter: blur(10px);
+}
+
+.popup-content {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 10001;
+}
+
+.close-btn:hover {
+  color: var(--primary);
+  transform: scale(1.2);
+}
+
+.caption {
+  color: var(--gold);
+  text-align: center;
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==================== INDUMENTARIA - ESTILOS MEJORADOS ==================== */
+#attire.section {
+  padding: 80px 5%;
+}
+
+#attire .section-title {
+  font-size: 2.5rem;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+#attire .section-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -15px;
+  width: 100px;
+  height: 4px;
+  background: var(--primary);
+}
+
+/* Pestañas */
+.attire-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.attire-tab {
+  padding: 12px 25px;
+  background: rgba(70, 70, 70, 0.5);
+  border: none;
+  border-radius: 30px;
+  color: #DDD;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.attire-tab.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 51, 51, 0.5);
+}
+
+.attire-tab:hover {
+  background: var(--primary-dark);
+  color: white;
+}
+
+/* Selector de género */
+.gender-selector {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.gender-btn {
+  padding: 8px 20px;
+  background: rgba(70, 70, 70, 0.5);
+  border: 1px solid #555;
+  border-radius: 20px;
+  color: #DDD;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gender-btn.active {
+  background: #8B0000;
+  color: white;
+  border-color: var(--primary);
+}
+
+.gender-btn:hover {
+  background: rgba(139, 0, 0, 0.7);
+}
+
+/* Contenido de uniformes */
+.attire-content {
+  display: none;
+}
+
+.attire-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Grid principal CENTRADO */
+.members-grid,
+.attire-grid,
+.management-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Grupos de uniformes - CENTRADO */
+.uniform-pair {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Cuando hay pocos items, se centran */
+.uniform-pair[data-gender="male"].visible,
+.uniform-pair[data-gender="female"].visible {
+  display: grid;
+}
+
+/* Cards de uniformes */
+.attire-card {
+  background: rgba(30, 30, 30, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  border: 1px solid #333;
+  max-width: 400px;
+  margin: 0 auto; /* Centra cada card */
+}
+
+.attire-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 51, 51, 0.4);
+  border-color: var(--primary);
+}
+
+.attire-image {
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.attire-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.attire-card:hover .attire-image img {
+  transform: scale(1.05);
+}
+
+.attire-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border: 1px solid var(--primary);
+}
+
+.attire-info {
+  padding: 20px;
+}
+
+.attire-info h3 {
+  color: var(--primary);
+  margin: 0 0 15px;
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.uniform-features {
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.uniform-features li {
+  margin-bottom: 10px;
+  color: #ddd;
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.uniform-features li:before {
+  content: "•";
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* Estilos especiales para jefatura */
+.management-grid .attire-card {
+  border: 2px solid var(--primary);
+}
+
+.management-grid .attire-badge {
+  background: var(--primary);
+  color: #000;
+  font-weight: bold;
+}
 .footer {
   padding: 45px 0;
   text-align: center;
@@ -1287,6 +1778,57 @@ img.lazy.loaded {
   
   .location-detail i {
     margin: 0 auto 10px;
+  }
+  
+  /* Indumentaria responsive */
+  .attire-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .attire-tab {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .uniform-pair {
+    grid-template-columns: 1fr;
+  }
+  
+  .attire-image {
+    height: 300px;
+  }
+  
+  /* Menú responsive */
+  .menu-categories {
+    grid-template-columns: 1fr;
+  }
+  
+  .popup {
+    max-width: 90%;
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+  
+  /* Tareas responsive */
+  .task-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .task-tab {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .task-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+  
+  .task-card {
+    flex-direction: column;
   }
   
   /* Reduce efectos en móvil para mejor rendimiento */
