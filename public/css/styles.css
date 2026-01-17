@@ -30,7 +30,7 @@ body {
   font-family: 'Oregano', cursive;
   background: #0a0a0a;
   color: var(--text-light);
-  line-height: 1;
+  line-height: 1.8;
   overflow-x: hidden;
   position: relative;
 }
@@ -94,19 +94,12 @@ body::before {
 }
 
 /* ==================== TYPOGRAPHY ==================== */
-/*h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.3;
   margin-bottom: 1rem;
-}*/
-h1 {
-  font-weight: 500;
-  margin-top: 5.3rem;
 }
 
-h2{
-  font-weight: 400;
-}
 p {
   margin-bottom: 1.5rem;
 }
@@ -118,7 +111,7 @@ p {
   border-radius: 50px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   transition: var(--transition);
   margin-right: 15px;
   margin-bottom: 15px;
@@ -246,24 +239,17 @@ p {
   background: var(--primary);
   border-radius: 2px;
 }
-.section-subtitle{
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: var(--text-gray);
-}
+
 .section-content {
-  font-size: 1.2rem;
-  line-height: 1;
+  font-size: 1.3rem;
+  line-height: 1.8;
   background: rgba(15, 15, 20, 0.6);
-  padding: 20px;
+  padding: 40px;
   border-left: 4px solid var(--primary);
   border-radius: 0 10px 10px 0;
   transition: var(--transition);
 }
-.section-content h2 {
-  margin-top: 0;
-  color: var(--primary);
-}
+
 .section-content:hover {
   background: rgba(20, 15, 25, 0.7);
   transform: translateX(5px);
@@ -320,7 +306,7 @@ p {
 }
 
 .history-text p {
-  line-height: 1;
+  line-height: 1.9;
   margin-bottom: 1.5rem;
   text-align: justify;
 }
@@ -363,7 +349,7 @@ p {
 .history-list li {
   margin-bottom: 12px;
   position: relative;
-  line-height: 1;
+  line-height: 1.7;
 }
 
 .history-list li::before {
@@ -428,7 +414,7 @@ p {
 .pact-text {
   font-style: italic;
   color: #d8bfd8;
-  line-height: 1;
+  line-height: 1.8;
   font-size: 1.5rem;
 }
 
@@ -888,7 +874,7 @@ p {
   font-size: 1.2rem;
   position: relative;
   padding-left: 20px;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 .member-lore li::before {
@@ -1005,45 +991,68 @@ p {
   background: rgba(15, 15, 20, 0.7);
   padding: 40px;
   border-top: 3px solid var(--primary);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 30px;
   border-radius: 12px;
 }
 
 .location-info h3 {
-  grid-column: 1 / -1;
   color: var(--primary);
   font-size: 1.9rem;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
+  text-align: center;
+}
+
+/* Grid centrado para los detalles */
+.location-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .location-detail {
   display: flex;
   gap: 18px;
-  padding: 18px;
+  padding: 20px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   transition: var(--transition);
+  align-items: flex-start;
 }
 
 .location-detail:hover {
   background: rgba(255, 0, 54, 0.1);
-  transform: translateX(5px);
+  transform: translateY(-3px);
 }
 
 .location-detail i {
   color: var(--primary);
   font-size: 1.6rem;
   margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.location-detail > div {
+  flex: 1;
 }
 
 .location-detail h4 {
   margin-bottom: 10px;
   font-size: 1.2rem;
+  color: var(--gold);
+}
+
+.location-detail p {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
 }
 
 .location-detail ul {
@@ -1056,6 +1065,7 @@ p {
   margin-bottom: 8px;
   position: relative;
   padding-left: 15px;
+  line-height: 1.6;
 }
 
 .location-detail li::before {
@@ -1204,6 +1214,11 @@ img.lazy.loaded {
     padding: 80px 5%;
   }
   
+  /* Ajuste especial para el inicio en móvil */
+  .section#inicio {
+    padding-top: 120px;
+  }
+  
   .section-title {
     font-size: 2.3rem;
   }
@@ -1260,6 +1275,20 @@ img.lazy.loaded {
     min-height: 400px;
   }
   
+  /* Ubicación centrada en móvil */
+  .location-details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .location-detail {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .location-detail i {
+    margin: 0 auto 10px;
+  }
+  
   /* Reduce efectos en móvil para mejor rendimiento */
   .section-content:hover,
   .history-chapter:hover,
@@ -1275,22 +1304,51 @@ img.lazy.loaded {
     padding: 70px 4%;
   }
   
+  .section#inicio {
+    padding-top: 110px;
+  }
+  
   .section-content {
-    padding: 25px;
-    font-size: 1.2rem;
+    padding: 20px;
+    font-size: 1.1rem;
   }
   
   .section-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .section-title2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.2rem;
   }
   
   .location-info {
-    grid-template-columns: 1fr;
-    padding: 25px 18px;
+    padding: 25px 15px;
+  }
+  
+  .location-info h3 {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .location-details-grid {
+    gap: 15px;
+  }
+  
+  .location-detail {
+    padding: 15px;
+  }
+  
+  .location-detail i {
+    font-size: 1.4rem;
+  }
+  
+  .location-detail h4 {
+    font-size: 1.1rem;
   }
   
   .map-marker {
@@ -1302,14 +1360,14 @@ img.lazy.loaded {
   }
   
   .blood-pact {
-    padding: 1.8rem;
+    padding: 1.5rem;
   }
   
   .objective-main {
-    padding: 25px;
+    padding: 20px;
   }
   
   .daily-tasks {
-    padding: 25px;
+    padding: 20px;
   }
 }
