@@ -30,7 +30,7 @@ body {
   font-family: 'Oregano', cursive;
   background: #0a0a0a;
   color: var(--text-light);
-  line-height: 1.8;
+  line-height: 1;
   overflow-x: hidden;
   position: relative;
 }
@@ -94,12 +94,19 @@ body::before {
 }
 
 /* ==================== TYPOGRAPHY ==================== */
-h1, h2, h3, h4, h5, h6 {
+/*h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1;
   margin-bottom: 1rem;
+}*/
+h1 {
+  font-weight: 500;
+  margin-top: 5.3rem;
 }
 
+h2{
+  font-weight: 400;
+}
 p {
   margin-bottom: 1.5rem;
 }
@@ -111,7 +118,7 @@ p {
   border-radius: 50px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   transition: var(--transition);
   margin-right: 15px;
   margin-bottom: 15px;
@@ -239,17 +246,24 @@ p {
   background: var(--primary);
   border-radius: 2px;
 }
-
+.section-subtitle{
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-gray);
+}
 .section-content {
-  font-size: 1.3rem;
-  line-height: 1.8;
+  font-size: 1.2rem;
+  line-height: 1;
   background: rgba(15, 15, 20, 0.6);
-  padding: 40px;
+  padding: 20px;
   border-left: 4px solid var(--primary);
   border-radius: 0 10px 10px 0;
   transition: var(--transition);
 }
-
+.section-content h2 {
+  margin-top: 0;
+  color: var(--primary);
+}
 .section-content:hover {
   background: rgba(20, 15, 25, 0.7);
   transform: translateX(5px);
@@ -306,7 +320,7 @@ p {
 }
 
 .history-text p {
-  line-height: 1.9;
+  line-height: 1;
   margin-bottom: 1.5rem;
   text-align: justify;
 }
@@ -349,7 +363,7 @@ p {
 .history-list li {
   margin-bottom: 12px;
   position: relative;
-  line-height: 1.7;
+  line-height: 1;
 }
 
 .history-list li::before {
@@ -414,7 +428,7 @@ p {
 .pact-text {
   font-style: italic;
   color: #d8bfd8;
-  line-height: 1.8;
+  line-height: 1;
   font-size: 1.5rem;
 }
 
@@ -874,7 +888,7 @@ p {
   font-size: 1.2rem;
   position: relative;
   padding-left: 20px;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 .member-lore li::before {
@@ -1055,9 +1069,8 @@ p {
 .footer {
   padding: 45px 0;
   text-align: center;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.95), rgba(10, 0, 10, 1));
+  background: rgba(0, 0, 0, 0.95);
   border-top: 2px solid var(--primary);
-  box-shadow: 0 -5px 30px rgba(255, 0, 54, 0.2);
 }
 
 .footer-content {
@@ -1066,42 +1079,73 @@ p {
   padding: 0 20px;
 }
 
+.footer p {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
 .footer-logo {
-  height: 70px;
-  margin-bottom: 25px;
-  filter: drop-shadow(0 0 15px var(--primary));
+  height: 65px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px var(--primary));
   transition: var(--transition);
 }
 
 .footer-logo:hover {
-  filter: drop-shadow(0 0 25px var(--primary));
+  filter: drop-shadow(0 0 18px var(--primary));
   transform: scale(1.05);
 }
 
 .social-links {
-  margin-top: 25px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 18px;
 }
 
 .social-links a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255, 0, 54, 0.2), rgba(139, 0, 255, 0.2));
+  background: rgba(255, 0, 54, 0.15);
   color: var(--text-light);
   transition: var(--transition);
   border: 2px solid rgba(255, 0, 54, 0.3);
 }
 
 .social-links a:hover {
-  background: linear-gradient(135deg, var(--primary), var(--purple));
-  transform: translateY(-5px) rotate(360deg);
-  box-shadow: 0 10px 25px rgba(255, 0, 54, 0.5);
+  background: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 0, 54, 0.4);
+  border-color: var(--primary);
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.15); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== LAZY LOADING ==================== */
+img {
+  loading: lazy;
+}
+
+img.lazy {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+img.lazy.loaded {
+  opacity: 1;
 }
 
 /* ==================== RESPONSIVE ==================== */
@@ -1123,6 +1167,14 @@ p {
   .history-chapter.reverse .history-image {
     order: initial;
   }
+  
+  .objectives-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .royal-couple {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
 }
 
 @media (max-width: 992px) {
@@ -1133,15 +1185,27 @@ p {
   .location-map-item {
     grid-column: 1;
   }
+  
+  .task-columns {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
+  body::before {
+    background: #0a0a0a; /* Fondo sólido en móvil */
+  }
+  
   .menu-toggle {
     display: block;
   }
   
+  .section {
+    padding: 80px 5%;
+  }
+  
   .section-title {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
   }
   
   .section-title2 {
@@ -1159,7 +1223,7 @@ p {
     align-items: center;
     justify-content: center;
     transition: left 0.4s ease;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
   }
 
   .nav-links.active {
@@ -1171,37 +1235,62 @@ p {
     gap: 25px;
   }
   
+  .history-text {
+    font-size: 1.3rem;
+  }
+  
   .history-text h3 {
     font-size: 2rem;
   }
   
   .member-image {
-    height: 250px;
+    height: 280px;
+  }
+  
+  .member-info {
+    padding: 1.5rem;
   }
   
   .gallery-row {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
   }
   
   .gallery-item {
     min-height: 400px;
   }
+  
+  /* Reduce efectos en móvil para mejor rendimiento */
+  .section-content:hover,
+  .history-chapter:hover,
+  .member-card:hover,
+  .gallery-item:hover,
+  .objective-card:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 576px) {
   .section {
-    padding: 80px 5%;
+    padding: 70px 4%;
   }
   
   .section-content {
-    padding: 30px;
-    font-size: 1.1rem;
+    padding: 25px;
+    font-size: 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-title2 {
+    font-size: 2.2rem;
   }
   
   .location-info {
     grid-template-columns: 1fr;
-    padding: 30px 20px;
+    padding: 25px 18px;
   }
   
   .map-marker {
@@ -1209,6 +1298,18 @@ p {
   }
   
   .history-img {
-    max-height: 450px;
+    max-height: 400px;
+  }
+  
+  .blood-pact {
+    padding: 1.8rem;
+  }
+  
+  .objective-main {
+    padding: 25px;
+  }
+  
+  .daily-tasks {
+    padding: 25px;
   }
 }

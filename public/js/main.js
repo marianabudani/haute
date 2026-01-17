@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Código para los videos de fondo
+    
+    // ==================== 1. VIDEO DE FONDO (OPTIMIZADO) ====================
     const videos = [
         { id: 'video1', file: 'logo_haute.mp4' }
     ];
@@ -13,361 +14,274 @@ document.addEventListener('DOMContentLoaded', function() {
         videoEl.loop = true;
         videoEl.autoplay = true;
         videoEl.playsInline = true;
+        videoEl.setAttribute('playsinline', ''); // Para iOS
         document.body.prepend(videoEl);
 
-        if(index === 0) videoEl.classList.add('active');
+        if(index === 0) {
+            videoEl.classList.add('active');
+            // Opacidad muy baja para que sea solo un efecto sutil
+            videoEl.style.opacity = '0.12';
+        }
     });
 
+    // Rotación de videos (si tienes más de uno)
     let currentVideo = 0;
     setInterval(() => {
         const allVideos = document.querySelectorAll('.video-bg');
-        allVideos[currentVideo].classList.remove('active');
-        currentVideo = (currentVideo + 1) % allVideos.length;
-        allVideos[currentVideo].classList.add('active');
+        if(allVideos.length > 1) {
+            allVideos[currentVideo].classList.remove('active');
+            allVideos[currentVideo].style.opacity = '0';
+            currentVideo = (currentVideo + 1) % allVideos.length;
+            allVideos[currentVideo].classList.add('active');
+            allVideos[currentVideo].style.opacity = '0.12';
+        }
     }, 8000);
 
-    // Configuración de tabs principal
-function setupMainTabs() {
-    const tabButtons = document.querySelectorAll('.attire-tab');
-    const tabContents = document.querySelectorAll('.attire-content');
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remover active de todos los botones y contenidos
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-            
-            // Agregar active al botón clickeado
-            this.classList.add('active');
-            
-            // Mostrar el contenido correspondiente
-            const tabId = this.getAttribute('data-tab');
-            document.getElementById(`${tabId}-tab`).classList.add('active');
-            
-            // Aplicar filtro de género
-            applyGenderFilter();
+    // Pausa el video cuando no está visible (ahorro de recursos)
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (!entry.isIntersecting) {
+                video.pause();
+            } else {
+                video.play();
+            }
         });
     });
-}
-// Sistema de filtro por género
-let currentGender = 'male';
-
-function setupGenderFilter() {
-    const genderButtons = document.querySelectorAll('.gender-btn');
     
-    genderButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remover active de todos los botones de género
-            genderButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Agregar active al botón clickeado
-            this.classList.add('active');
-            
-            // Actualizar género actual
-            currentGender = this.getAttribute('data-gender');
-            
-            // Aplicar filtro
-            applyGenderFilter();
-        });
+    document.querySelectorAll('.video-bg').forEach(video => {
+        videoObserver.observe(video);
     });
-}
 
-// Función para aplicar el filtro por género
-function applyGenderFilter() {
-    const activeTab = document.querySelector('.attire-content.active');
-    if (!activeTab) return;
+    // ==================== 2. LAZY LOADING DE IMÁGENES ====================
+    const lazyImages = document.querySelectorAll('img.lazy, img[loading="lazy"]');
     
-    // Ocultar todos los uniform-pairs primero
-    activeTab.querySelectorAll('.uniform-pair').forEach(pair => {
-        pair.classList.remove('visible');
-    });
-    
-    // Mostrar solo los del género seleccionado
-    activeTab.querySelectorAll(`.uniform-pair[data-gender="${currentGender}"]`).forEach(pair => {
-        pair.classList.add('visible');
-    });
-}
-
- function smoothScroll(target, duration) {
-        const targetElement = document.querySelector(target);
-        const targetPosition = targetElement.getBoundingClientRect().top;
-        const startPosition = window.pageYOffset;
-        const distance = targetPosition - startPosition;
-        let startTime = null;
-        
-        function animation(currentTime) {
-            if (startTime === null) startTime = currentTime;
-            const timeElapsed = currentTime - startTime;
-            const run = ease(timeElapsed, startPosition, distance, duration);
-            window.scrollTo(0, run);
-            if (timeElapsed < duration) requestAnimationFrame(animation);
-        }
-        
-        function ease(t, b, c, d) {
-            t /= d / 2;
-            if (t < 1) return c / 2 * t * t + b;
-            t--;
-            return -c / 2 * (t * (t - 2) - 1) + b;
-        }
-        
-        requestAnimationFrame(animation);
-    }
-    
-    // Lazy loading para imágenes fuera del viewport
-    const images = document.querySelectorAll('img[data-src]');
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.add('loaded');
+                
+                // Si tiene data-src, úsalo
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                }
+                
+                // Añade clase cuando carga
+                img.addEventListener('load', () => {
+                    img.classList.add('loaded');
+                });
+                
                 observer.unobserve(img);
             }
         });
+    }, {
+        rootMargin: '50px' // Carga 50px antes de que sea visible
     });
     
-    images.forEach(img => imageObserver.observe(img));
-    
-    // Optimiza animaciones cuando no está en el viewport
-    const animatedElements = document.querySelectorAll('.history-chapter, .member-card, .objective-card');
-    const animationObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            } else {
-                entry.target.classList.remove('animate');
-            }
-        });
-    });
-    
-    animatedElements.forEach(el => animationObserver.observe(el));
-function initAttireSection() {
-    // Configurar el grid dinámicamente
-    const style = document.createElement('style');
-    style.textContent = `
-        .members-grid, .attire-grid {
-            display: grid;
-            gap: 2rem;
-            justify-content: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    lazyImages.forEach(img => imageObserver.observe(img));
+
+    // ==================== 3. SISTEMA DE PESTAÑAS (INDUMENTARIA) ====================
+    function setupMainTabs() {
+        const tabButtons = document.querySelectorAll('.attire-tab');
+        const tabContents = document.querySelectorAll('.attire-content');
         
-        .uniform-pair {
-            display: grid;
-            gap: 1.5rem;
-            transition: all 0.4s ease-out;
-        }
-        
-        .attire-card {
-            background: #1a1a1a;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-            max-width: 100%;
-        }
-        
-        .attire-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        @media (max-width: 768px) {
-            .members-grid, .attire-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .uniform-pair {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Aplicar filtro inicial después de un pequeño delay
-    setTimeout(() => {
-        applyGenderFilter();
-        
-        // Forzar un reflow para asegurar que las transiciones se apliquen
-        document.querySelectorAll('.uniform-pair').forEach(pair => {
-            pair.offsetHeight; // Trigger reflow
-        });
-    }, 100);
-}
-    // 4. Configurar el layout para mostrar uniformes uno al lado del otro
-    function setupUniformLayout() {
-        const style = document.createElement('style');
-        style.textContent = `
-            .attire-grid {
-                display: grid;
-                gap: 2rem;
-            }
-            
-            .uniform-pair {
-                display: flex;
-                gap: 1rem;
-                margin-bottom: 2rem;
-                transition: opacity 0.3s ease;
-            }
-            
-            .uniform-variant {
-                flex: 1;
-            }
-            
-            @media (max-width: 768px) {
-                .uniform-pair {
-                    flex-direction: column;
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                this.classList.add('active');
+                
+                const tabId = this.getAttribute('data-tab');
+                const targetContent = document.getElementById(`${tabId}-tab`);
+                if(targetContent) {
+                    targetContent.classList.add('active');
                 }
-            }
-        `;
-        document.head.appendChild(style);
+                
+                applyGenderFilter();
+            });
+        });
     }
 
-    // 5. Scroll suave para enlaces
+    // ==================== 4. FILTRO POR GÉNERO ====================
+    let currentGender = 'male';
+
+    function setupGenderFilter() {
+        const genderButtons = document.querySelectorAll('.gender-btn');
+        
+        genderButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                genderButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                currentGender = this.getAttribute('data-gender');
+                applyGenderFilter();
+            });
+        });
+    }
+
+    function applyGenderFilter() {
+        const activeTab = document.querySelector('.attire-content.active');
+        if (!activeTab) return;
+        
+        // Ocultar todos
+        activeTab.querySelectorAll('.uniform-pair').forEach(pair => {
+            pair.style.display = 'none';
+            pair.classList.remove('visible');
+        });
+        
+        // Mostrar solo el género seleccionado
+        activeTab.querySelectorAll(`.uniform-pair[data-gender="${currentGender}"]`).forEach(pair => {
+            pair.style.display = 'grid';
+            pair.classList.add('visible');
+        });
+    }
+
+    // ==================== 5. SMOOTH SCROLL ====================
     function setupSmoothScroll() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if(href === '#') return;
+                
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(href);
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
     }
 
-    // 6. Efectos de animación para las secciones de historia
+    // ==================== 6. ANIMACIONES DE HISTORIA ====================
     function setupHistoryAnimations() {
         const historyChapters = document.querySelectorAll('.history-chapter');
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
+                    entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, { threshold: 0.1 });
+        }, { 
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
 
         historyChapters.forEach(chapter => {
-            chapter.style.opacity = 0;
+            chapter.style.opacity = '0';
             chapter.style.transform = 'translateY(30px)';
             chapter.style.transition = 'all 0.6s ease-out';
             observer.observe(chapter);
         }); 
     }
 
-    // 7. Animación de métricas
-    function setupMetricsAnimation() {
-        const metrics = document.querySelectorAll('.objective-metric span');
-        const animateMetrics = () => {
-            metrics.forEach(metric => {
-                const target = metric.textContent.match(/\d+/)?.[0];
-                if (!target) return;
-                
-                let current = 0;
-                const increment = target / 30;
-                const updateMetric = () => {
-                    current += increment;
-                    if (current < target) {
-                        metric.textContent = metric.textContent.replace(/\d+/, Math.floor(current));
-                        requestAnimationFrame(updateMetric);
-                    } else {
-                        metric.textContent = metric.textContent.replace(/\d+/, target);
-                    }
-                };
-                updateMetric();
-            });
-        };
-
-        const metricsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateMetrics();
-                    metricsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        metricsObserver.observe(document.getElementById('objetivos'));
-    }
-
-    // 8. Lightbox para la galería
+    // ==================== 7. LIGHTBOX PARA GALERÍA ====================
     function setupLightbox() {
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', function() {
-                const imgSrc = this.querySelector('img').src;
-                const title = this.querySelector('h3').textContent;
-                const desc = this.querySelector('p').textContent;
+                const img = this.querySelector('img');
+                const h3 = this.querySelector('h3');
+                const p = this.querySelector('p');
+                
+                if(!img) return;
+                
+                const imgSrc = img.src;
+                const title = h3 ? h3.textContent : '';
+                const desc = p ? p.textContent : '';
                 
                 const lightbox = document.createElement('div');
                 lightbox.className = 'lightbox';
+                lightbox.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.95);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10000;
+                    cursor: pointer;
+                `;
+                
                 lightbox.innerHTML = `
-                    <div class="lightbox-content">
-                        <span class="close-lightbox">&times;</span>
-                        <img src="${imgSrc}" alt="${title}">
-                        <div class="lightbox-info">
-                            <h3>${title}</h3>
+                    <div class="lightbox-content" style="max-width: 90%; max-height: 90%; position: relative;">
+                        <span class="close-lightbox" style="
+                            position: absolute;
+                            top: -40px;
+                            right: 0;
+                            color: white;
+                            font-size: 40px;
+                            cursor: pointer;
+                            z-index: 10001;
+                        ">&times;</span>
+                        <img src="${imgSrc}" alt="${title}" style="
+                            max-width: 100%;
+                            max-height: 80vh;
+                            border-radius: 10px;
+                            box-shadow: 0 0 30px rgba(255, 0, 54, 0.5);
+                        ">
+                        <div class="lightbox-info" style="
+                            color: white;
+                            text-align: center;
+                            margin-top: 20px;
+                        ">
+                            <h3 style="color: #ff0036; margin-bottom: 10px;">${title}</h3>
                             <p>${desc}</p>
                         </div>
                     </div>
                 `;
                 
                 document.body.appendChild(lightbox);
+                document.body.style.overflow = 'hidden';
                 
-                lightbox.querySelector('.close-lightbox').addEventListener('click', () => {
-                    lightbox.remove();
-                });
+                // Fade in
+                setTimeout(() => lightbox.style.opacity = '1', 10);
+                lightbox.style.opacity = '0';
+                lightbox.style.transition = 'opacity 0.3s';
                 
-                lightbox.addEventListener('click', (e) => {
-                    if(e.target === lightbox) {
+                const closeLightbox = () => {
+                    lightbox.style.opacity = '0';
+                    setTimeout(() => {
                         lightbox.remove();
-                    }
+                        document.body.style.overflow = '';
+                    }, 300);
+                };
+                
+                lightbox.querySelector('.close-lightbox').addEventListener('click', closeLightbox);
+                lightbox.addEventListener('click', (e) => {
+                    if(e.target === lightbox) closeLightbox();
                 });
             });
         });
     }
 
-    // 9. Efectos para el mapa
+    // ==================== 8. EFECTOS DEL MAPA ====================
     function setupMapEffects() {
-        const mapContainer = document.querySelector('.map-container');
-        if (!mapContainer) return;
+        const mapMarker = document.querySelector('.map-marker');
+        const mapImage = document.querySelector('.location-gallery img');
         
-        mapContainer.addEventListener('mouseenter', function() {
-            this.querySelector('.game-map').style.transform = 'scale(1.05)';
-            this.querySelector('.map-marker').style.animation = 'pulse 1s infinite';
-        });
-
-        mapContainer.addEventListener('mouseleave', function() {
-            this.querySelector('.game-map').style.transform = 'scale(1)';
-            this.querySelector('.map-marker').style.animation = 'pulse 2s infinite';
-        });
-
-        const marker = document.querySelector('.map-marker');
-        if (marker) {
-            marker.setAttribute('data-tooltip', '¡Aquí estamos!');
+        if(mapMarker && mapImage) {
+            mapMarker.addEventListener('mouseenter', function() {
+                this.style.transform = 'translate(-50%, -50%) scale(1.3)';
+                this.style.textShadow = '0 0 30px rgba(255, 0, 54, 1)';
+            });
+            
+            mapMarker.addEventListener('mouseleave', function() {
+                this.style.transform = 'translate(-50%, -50%) scale(1)';
+                this.style.textShadow = '0 0 20px rgba(255, 0, 54, 0.8)';
+            });
         }
-
-        // Efecto de zoom mejorado para el mapa
-        mapContainer.addEventListener('mousemove', (e) => {
-            const map = e.currentTarget;
-            const img = map.querySelector('.game-map');
-            const rect = map.getBoundingClientRect();
-            
-            const x = (e.clientX - rect.left) / rect.width;
-            const y = (e.clientY - rect.top) / rect.height;
-            
-            img.style.transformOrigin = `${x * 100}% ${y * 100}%`;
-        });
-
-        mapContainer.addEventListener('mouseleave', (e) => {
-            const img = e.currentTarget.querySelector('.game-map');
-            img.style.transform = 'scale(1)';
-            img.style.transformOrigin = 'center center';
-        });
     }
 
-    // 10. Menú responsive
+    // ==================== 9. MENÚ RESPONSIVE ====================
     function setupResponsiveMenu() {
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
@@ -376,85 +290,99 @@ function initAttireSection() {
             menuToggle.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
                 this.classList.toggle('open');
+                
+                // Cambia el icono
+                this.innerHTML = navLinks.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
             });
 
+            // Cierra el menú al hacer click en un link
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', function() {
                     navLinks.classList.remove('active');
                     menuToggle.classList.remove('open');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
                 });
             });
         }
     }
 
-    // 11. Efecto de header al hacer scroll
+    // ==================== 10. HEADER AL HACER SCROLL ====================
     function setupHeaderScrollEffect() {
         const header = document.querySelector('.header');
-        if(header) {
-            window.addEventListener('scroll', function() {
-                if(window.scrollY > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
+        if(!header) return;
+        
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            if(currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+    }
+
+    // ==================== 11. NAVEGACIÓN ACTIVA ====================
+    function setupActiveNavigation() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
                 }
             });
-        }
-    }
-
-    // 12. Ajustes de altura para el mapa
-    function setupMapHeightAdjustment() {
-        function adjustHeights() {
-            const mapContainer = document.querySelector('.map-container');
-            const photoContainer = document.querySelector('.building-photo-container');
             
-            if (window.innerWidth > 992 && mapContainer && photoContainer) {
-                const height = mapContainer.offsetWidth;
-                photoContainer.style.height = `${height}px`;
-            } else if (photoContainer) {
-                photoContainer.style.height = 'auto';
-            }
-        }
-
-        window.addEventListener('load', adjustHeights);
-        window.addEventListener('resize', adjustHeights);
-    }
-
-    // 13. Ajuste de posición del marcador del mapa
-    function setupMarkerPosition() {
-        function adjustMarkerPosition() {
-            const marker = document.querySelector('.map-marker');
-            if (marker) {
-                marker.style.top = '58%';
-                marker.style.left = '52%';
-                
-                if (window.innerWidth < 768) {
-                    marker.style.top = '57%';
-                    marker.style.left = '53%';
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
                 }
-            }
-        }
-
-        window.addEventListener('load', adjustMarkerPosition);
-        window.addEventListener('resize', adjustMarkerPosition);
+            });
+        });
     }
- 
-    // Aplicar filtro inicial
-    setTimeout(() => {
-        applyGenderFilter();
-    }, 100);
+
+    // ==================== 12. OPTIMIZACIÓN DE RENDIMIENTO ====================
+    // Reduce animaciones cuando el usuario prefiere menos movimiento
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('*').forEach(el => {
+            el.style.animation = 'none';
+            el.style.transition = 'none';
+        });
+    }
+
+    // Deshabilita hover effects en touch devices
+    if ('ontouchstart' in window) {
+        document.body.classList.add('touch-device');
+    }
+
+    // ==================== INICIALIZACIÓN ====================
+    // Ejecuta todas las funciones en orden
     setupMainTabs();
-    setupUniformLayout();
     setupGenderFilter();
-    initAttireSection();
     setupSmoothScroll();
     setupHistoryAnimations();
-    setupMetricsAnimation();
     setupLightbox();
     setupMapEffects();
     setupResponsiveMenu();
     setupHeaderScrollEffect();
-    setupMapHeightAdjustment();
-    setupMarkerPosition();
-    // Aplicar filtro inicial
-    applyGenderFilter();
+    setupActiveNavigation();
+    
+    // Aplica el filtro de género inicial después de que todo cargue
+    setTimeout(() => {
+        applyGenderFilter();
+    }, 100);
+    
+    console.log('✓ HAUTE Website Initialized');
 });
