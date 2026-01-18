@@ -1,0 +1,129 @@
+
+/* ==================== LOCATION ==================== */
+.game-location-container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.location-gallery {
+  display: contents;
+}
+
+.location-gallery .gallery-item {
+  height: 350px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 0, 54, 0.3);
+}
+
+.location-map-item {
+  grid-column: span 2;
+}
+
+.map-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--primary);
+  font-size: 3rem;
+  text-shadow: 0 0 15px rgba(255, 0, 54, 0.8);
+  animation: pulse 2s infinite;
+  z-index: 2;
+  filter: drop-shadow(0 0 8px var(--primary));
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.15); }
+}
+
+.location-info {
+  grid-column: 1 / -1;
+  background: rgba(15, 15, 20, 0.7);
+  padding: 40px;
+  border-top: 3px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-radius: 12px;
+}
+
+.location-info h3 {
+  color: var(--primary);
+  font-size: 1.9rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+/* Grid centrado para los detalles */
+.location-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.location-detail {
+  display: flex;
+  gap: 18px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  transition: var(--transition);
+  align-items: flex-start;
+}
+
+.location-detail:hover {
+  background: rgba(255, 0, 54, 0.1);
+  transform: translateY(-3px);
+}
+
+.location-detail i {
+  color: var(--primary);
+  font-size: 1.6rem;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.location-detail > div {
+  flex: 1;
+}
+
+.location-detail h4 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+
+.location-detail p {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.location-detail ul {
+  padding-left: 18px;
+  margin-top: 8px;
+  list-style: none;
+}
+
+.location-detail li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 15px;
+  line-height: 1.6;
+}
+
+.location-detail li::before {
+  content: '▸';
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+}

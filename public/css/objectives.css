@@ -1,0 +1,193 @@
+
+/* ==================== OBJETIVOS ==================== */
+#objetivos {
+  padding: 100px 5%;
+  background: rgba(5, 5, 10, 0.8);
+}
+
+.section-title2 {
+  font-family: 'Oregano', cursive;
+  color: var(--purple);
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.section-title2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--purple), var(--primary), transparent);
+}
+
+.blood-pact {
+  background: rgba(40, 5, 10, 0.6);
+  border: 2px solid rgba(139, 0, 0, 0.5);
+  padding: 2.5rem;
+  margin: 2.5rem 0;
+  text-align: center;
+  border-radius: 12px;
+  position: relative;
+}
+
+.pact-symbol {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #e63946;
+}
+
+.pact-text {
+  font-style: italic;
+  color: #d8bfd8;
+  line-height: 1.8;
+  font-size: 1.5rem;
+}
+
+.pact-text strong {
+  color: #ea00ff;
+}
+
+.objectives-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.objective-main {
+  background: rgba(25, 10, 20, 0.7);
+  border: 2px solid rgba(139, 0, 255, 0.3);
+  border-radius: 15px;
+  padding: 40px;
+  margin: 40px 0;
+}
+
+.objective-icon {
+  font-size: 3rem;
+  color: var(--purple);
+  margin-bottom: 20px;
+}
+
+.objective-main h3 {
+  color: var(--gold);
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.reality-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.reality-list li {
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 8px 8px 0;
+  transition: var(--transition);
+  font-size: 1.25rem;
+}
+
+.reality-list li:hover {
+  background: rgba(255, 0, 54, 0.1);
+  transform: translateX(5px);
+}
+
+.objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.objective-card {
+  background: rgba(20, 15, 25, 0.7);
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid rgba(255, 0, 54, 0.2);
+  transition: var(--transition);
+  position: relative;
+}
+
+.objective-card.occult {
+  border-color: rgba(139, 0, 255, 0.3);
+}
+
+.objective-card.dark {
+  background: rgba(15, 5, 15, 0.8);
+  border-color: #8B0000;
+}
+
+.objective-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  border-color: var(--primary);
+}
+
+.objective-number {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 55px;
+  height: 55px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.objective-card h4 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 20px;
+  padding-right: 45px;
+}
+
+.objective-card.occult h4 {
+  color: var(--purple);
+}
+
+.objective-details {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+.objective-card p{
+  font-size: 1.2rem;
+}
+.objective-details li {
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.objective-details li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+.objective-details ul {
+  margin: 10px 0 10px 20px;
+  list-style: none;
+}
+
+.objective-details ul li::before {
+  content: '›';
+  color: var(--gold);
+}
