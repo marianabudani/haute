@@ -1,127 +1,52 @@
-
-/* ==================== INDUMENTARIA - ESTILOS MEJORADOS ==================== */
-#attire.section {
-  padding: 80px 5%;
-}
-
-#attire .section-title {
-  font-size: 2.5rem;
-  color: var(--primary);
-  text-align: center;
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  position: relative;
-}
-
-#attire .section-title::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -15px;
-  width: 100px;
-  height: 4px;
-  background: var(--primary);
-}
-
-/* Pestañas */
-.attire-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-}
-
-.attire-tab {
-  padding: 12px 25px;
-  background: rgba(70, 70, 70, 0.5);
-  border: none;
-  border-radius: 30px;
-  color: #DDD;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.attire-tab.active {
-  background: var(--primary);
-  color: white;
-  box-shadow: 0 0 15px rgba(255, 51, 51, 0.5);
-}
-
-.attire-tab:hover {
-  background: var(--primary-dark);
-  color: white;
-}
-
-/* Selector de género */
-.gender-selector {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 30px;
-}
-
-.gender-btn {
-  padding: 8px 20px;
-  background: rgba(70, 70, 70, 0.5);
-  border: 1px solid #555;
-  border-radius: 20px;
-  color: #DDD;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.gender-btn.active {
-  background: #8B0000;
-  color: white;
-  border-color: var(--primary);
-}
-
-.gender-btn:hover {
-  background: rgba(139, 0, 0, 0.7);
-}
-
-/* Contenido de uniformes */
-.attire-content {
-  display: none;
-}
-
-.attire-content.active {
-  display: block;
-  animation: fadeIn 0.5s ease;
-}
+/* ===================================
+   ESTILOS PARA INDUMENTARIA - CENTRADO
+   =================================== */
 
 /* Grid principal CENTRADO */
 .members-grid,
 .attire-grid,
 .management-grid {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Grupos de uniformes - CENTRADO */
+/* Grupos de uniformes - SIEMPRE CENTRADO */
 .uniform-pair {
   display: none;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
-  justify-content: center;
-  max-width: 1200px;
+  justify-items: center;
+  max-width: 100%;
   margin: 0 auto;
+  justify-content: center;
 }
 
-/* Cuando hay pocos items, se centran */
+/* Cuando hay pocos items, se centran perfectamente */
 .uniform-pair[data-gender="male"].visible,
 .uniform-pair[data-gender="female"].visible {
   display: grid;
 }
 
-/* Cards de uniformes */
+/* Para 2 tarjetas - centradas */
+.uniform-pair[data-gender]:has(.attire-card:nth-child(2):last-child) {
+  grid-template-columns: repeat(2, minmax(320px, 400px));
+  justify-content: center;
+}
+
+/* Para 3 tarjetas - centradas en una fila */
+.uniform-pair[data-gender]:has(.attire-card:nth-child(3):last-child) {
+  grid-template-columns: repeat(3, minmax(320px, 380px));
+  justify-content: center;
+}
+
+/* Para 4 tarjetas - 4 en una fila centradas */
+.uniform-pair[data-gender]:has(.attire-card:nth-child(4):last-child) {
+  grid-template-columns: repeat(4, minmax(280px, 350px));
+  justify-content: center;
+}
+
+/* Cards de uniformes con ancho máximo */
 .attire-card {
   background: rgba(30, 30, 30, 0.9);
   border-radius: 12px;
@@ -129,8 +54,8 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease;
   border: 1px solid #333;
+  width: 100%;
   max-width: 400px;
-  margin: 0 auto; /* Centra cada card */
 }
 
 .attire-card:hover {
@@ -216,59 +141,48 @@
   color: #000;
   font-weight: bold;
 }
-.footer {
-  padding: 45px 0;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.95);
-  border-top: 2px solid var(--primary);
+
+/* Responsive para indumentaria */
+@media (max-width: 1400px) {
+  /* Para 4 tarjetas en pantallas medianas - 2x2 */
+  .uniform-pair[data-gender]:has(.attire-card:nth-child(4):last-child) {
+    grid-template-columns: repeat(2, minmax(320px, 400px));
+  }
 }
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+@media (max-width: 1024px) {
+  /* Para 3 tarjetas - 2 arriba, 1 abajo centrada */
+  .uniform-pair[data-gender]:has(.attire-card:nth-child(3):last-child) {
+    grid-template-columns: repeat(2, minmax(320px, 400px));
+  }
 }
 
-.footer p {
-  margin-bottom: 8px;
-  font-size: 1.1rem;
+@media (max-width: 768px) {
+  .members-grid,
+  .attire-grid,
+  .management-grid {
+    padding: 10px;
+  }
+  
+  .uniform-pair,
+  .uniform-pair[data-gender]:has(.attire-card:nth-child(2):last-child),
+  .uniform-pair[data-gender]:has(.attire-card:nth-child(3):last-child),
+  .uniform-pair[data-gender]:has(.attire-card:nth-child(4):last-child) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  
+  .attire-card {
+    max-width: 100%;
+  }
+  
+  .attire-image {
+    height: 350px;
+  }
 }
 
-.footer-logo {
-  height: 65px;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 10px var(--primary));
-  transition: var(--transition);
-}
-
-.footer-logo:hover {
-  filter: drop-shadow(0 0 18px var(--primary));
-  transform: scale(1.05);
-}
-
-.social-links {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-}
-
-.social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: rgba(255, 0, 54, 0.15);
-  color: var(--text-light);
-  transition: var(--transition);
-  border: 2px solid rgba(255, 0, 54, 0.3);
-}
-
-.social-links a:hover {
-  background: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(255, 0, 54, 0.4);
-  border-color: var(--primary);
+@media (max-width: 480px) {
+  .attire-image {
+    height: 300px;
+  }
 }
