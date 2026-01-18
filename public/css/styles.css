@@ -93,13 +93,62 @@ body::before {
   z-index: -1;
 }
 
-/* ==================== TYPOGRAPHY ==================== */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 1rem;
+/* ===================================
+   ESTILOS ADICIONALES PARA STYLES.CSS
+   =================================== */
+
+/* Título inicial - fix para que no quede debajo del navbar */
+.section-title-init {
+  font-size: 3.5rem;
+  color: var(--primary);
+  text-shadow: var(--glow);
+  margin-top: 5rem;
+  margin-bottom: 1.5rem;
+  animation: fadeInDown 0.8s ease;
 }
 
+.section-subtitle {
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  font-style: italic;
+  text-align: center;
+  animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+.closing-phrase {
+  color: var(--gold);
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
+  font-style: italic;
+  padding: 20px;
+  border-top: 2px solid rgba(255, 215, 0, 0.3);
+  border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* ==================== BUTTONS ==================== */
 .btn {
   display: inline-block;
