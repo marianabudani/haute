@@ -186,8 +186,8 @@
   margin-bottom: 12px;
   padding-left: 20px;
   position: relative;
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
 .objective-details li::before {
