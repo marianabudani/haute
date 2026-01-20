@@ -27,12 +27,54 @@ html {
 }
 
 body {
-  font-family: 'Oregano', cursive;
+  font-family: 'Merriweather Sans', sans-serif;
   background: #0a0a0a;
   color: var(--text-light);
   line-height: 1.8;
   overflow-x: hidden;
   position: relative;
+}
+.merriweather-sans-regular {
+  font-family: "Merriweather Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.playfair-display-sc-regular {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.playfair-display-sc-bold {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.playfair-display-sc-black {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.playfair-display-sc-regular-italic {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.playfair-display-sc-bold-italic {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.playfair-display-sc-black-italic {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 900;
+  font-style: italic;
 }
 
 /* Patrón sutil de fondo (reemplaza video) */
@@ -118,6 +160,7 @@ body::before {
 
 /* Título inicial - fix para que no quede debajo del navbar */
 .section-title-init {
+  font-family: 'Playfair Display SC', serif;
   font-size: 3.5rem;
   color: var(--primary);
   text-shadow: var(--glow);
@@ -127,10 +170,11 @@ body::before {
 }
 
 .section-subtitle {
+  font-family: 'Playfair Display SC', serif;
   font-size: 1.8rem;
   color: var(--gold);
   margin-bottom: 2rem;
-  font-style: italic;
+  font-style: normal;
   text-align: center;
   animation: fadeInUp 0.8s ease 0.2s backwards;
 }
@@ -280,12 +324,14 @@ body::before {
 
 /* ==================== SECTIONS ==================== */
 .section {
+  font-family: 'Playfair Display SC', serif;
   padding: 120px 8%;
   min-height: auto;
   position: relative;
 }
 
 .section-title {
+  font-family: 'Playfair Display SC', serif;
   font-size: 3rem;
   margin-bottom: 2rem;
   position: relative;
@@ -294,6 +340,7 @@ body::before {
 }
 
 .section-title::after {
+  font-family: 'Playfair Display SC', serif;
   content: '';
   position: absolute;
   bottom: -15px;
@@ -305,6 +352,8 @@ body::before {
 }
 
 .section-content {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-style: normal;
   font-size: 1.2rem;
   line-height: 1;
   background: rgba(15, 15, 20, 0.6);
@@ -315,6 +364,7 @@ body::before {
 }
 
 .section-content:hover {
+  font-family: 'Merriweather Sans', sans-serif;
   background: rgba(20, 15, 25, 0.7);
   transform: translateX(5px);
 }
@@ -340,7 +390,7 @@ body::before {
   gap: 10px;
   margin-top: 20px;
   padding: 12px;
-  background: rgba(255, 0, 54, 0.1);
+  background: #0A090D;
   border-radius: 8px;
   font-weight: bold;
 }
