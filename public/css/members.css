@@ -89,11 +89,15 @@
   display: flex;
   flex-direction: column;
 }
-
+.member-info p{
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 1rem;
+}
 .member-info h3 {
+  font-family: 'Playfair Display SC', serif;
   margin: 0 0 12px;
   font-size: 1.7rem;
-  color: var(--gold);
+  color: #ff0036;
   letter-spacing: 1px;
   border-bottom: 2px solid rgba(255, 0, 54, 0.2);
   padding-bottom: 8px;
@@ -101,10 +105,10 @@
 
 .member-meta {
   display: flex;
-  flex-wrap: wrap;
+  align-content: center;
   gap: 8px;
-  margin-bottom: 15px;
-  font-size: 0.95rem;
+  margin-bottom: 10px;
+  font-size: 0.75rem;
 }
 
 .member-meta span {
@@ -128,41 +132,35 @@
   margin: 20px 0;
   border-radius: 0 8px 8px 0;
   flex-grow: 1;
+  font-size: 0.75rem;
 }
 
 .member-lore h4 {
-  margin: 0 0 12px 0;
-  font-size: 1.3rem;
-  color: var(--gold);
-  display: flex;
-  align-items: center;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+  color: #ffd700;
+  text-align: center;
   gap: 8px;
-}
-
-.member-lore h4::before {
-  content: '✧';
-  color: var(--primary);
 }
 
 .member-lore ul {
   margin: 0;
   padding-left: 20px;
   list-style-type: none;
+  font-size: 1rem;
 }
 
-.member-lore li {
+.member-lore ul li {
+  font-size: 0.95rem;
   margin-bottom: 8px;
-  font-size: 1.2rem;
-  position: relative;
+  position: initial;
   padding-left: 20px;
   line-height: 1.5;
 }
 
-.member-lore li::before {
-  content: '›';
-  position: absolute;
+.member-lore ul li::before {
+  font-size: 0.95rem;
   left: 0;
   color: #C1121F;
   font-weight: bold;
-  font-size: 1.4rem;
 }

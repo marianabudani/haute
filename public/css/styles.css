@@ -871,9 +871,6 @@ body::before {
   font-family: 'Playfair Display SC', serif;
   color: #FFBD00;
   margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
   font-size: 1.4rem;
 }
 

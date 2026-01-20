@@ -3,7 +3,7 @@
 #tasks .section-title {
   font-family: 'Playfair Display SC', serif;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -32,7 +32,7 @@
   color: var(--text-light);
   padding: 12px 24px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: var(--transition);
@@ -113,11 +113,7 @@
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
   transition: var(--transition);
-  display: flex;
-  gap: 15px;
   border-left: 4px solid var(--primary);
-  width: 100%;
-  max-width: 600px;
 }
 
 .operation-card.dark {
@@ -152,6 +148,7 @@
   color: #FFBD00;
   font-family: 'Playfair Display SC', serif;
   margin-bottom: 1rem;
+  margin-top: 5px;
   font-size: 1.4rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 0.5rem;
@@ -164,7 +161,7 @@
 .operation-list {
   list-style-type: none;
   padding-left: 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .operation-list li {
   font-family: 'Merriweather Sans', sans-serif;
@@ -240,6 +237,7 @@
 }
 
 .calendar-header {
+  font-family: 'Playfair Display SC', serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -367,6 +365,7 @@
 }
 
 .weekly-services-header {
+  font-family: 'Playfair Display SC', serif;
   grid-column: 1 / -1;
   text-align: center;
   margin-bottom: 5px;
@@ -376,7 +375,7 @@
 
 .weekly-services-header h3 {
   color: var(--gold);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -396,7 +395,6 @@
   flex-direction: column;
   min-height: 180px;
 }
-
 .day-services-card::before {
   content: '';
   position: absolute;
@@ -421,11 +419,11 @@
 }
 
 .day-services-card h3 {
+  font-family: 'Playfair Display SC', serif;
   margin: 0 0 12px 0;
-  color: var(--gold);
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
+  color: #FFBD00;
+  font-size: 1.2rem;
+  text-align: center;
   gap: 8px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -451,8 +449,6 @@
 }
 
 .day-services-card li::before {
-  content: '▸';
-  position: absolute;
   left: 0;
   color: var(--primary);
   font-size: 1rem;
@@ -556,13 +552,14 @@
 }
 
 .event-details h3 {
-  color: var(--gold);
-  font-size: 1.8rem;
+  font-family: 'Playfair Display SC', serif;
+  color: #FFBD00;
+  font-size: 1.65rem;
   margin-bottom: 15px;
 }
 
 .event-details p {
-  line-height: 1.8;
+  line-height: 1.2;
   margin-bottom: 15px;
 }
 
