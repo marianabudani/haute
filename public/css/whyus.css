@@ -44,7 +44,8 @@
 }
 
 .why-choose-block h3 {
-  color: var(--gold);
+  color: #FFBD00;
+  font-family: 'Playfair Display SC', serif;
   font-size: 1.4rem;
   margin-bottom: 20px;
   padding-bottom: 15px;
@@ -72,6 +73,7 @@
 }
 
 .why-choose-list li {
+  font-size: 1rem;
   padding-left: 30px;
   margin-bottom: 12px;
   position: relative;
@@ -80,6 +82,7 @@
 }
 
 .why-choose-list li::before {
+  font-size: 1rem;
   content: '▸';
   position: absolute;
   left: 0;
@@ -170,7 +173,8 @@
 }
 
 .why-us-card h3 {
-  color: var(--gold);
+  color: #FFBD00;
+  font-family: 'Playfair Display SC', serif;
   font-size: 1.4rem;
   margin-bottom: 20px;
   text-align: center;
@@ -187,6 +191,7 @@
 }
 
 .feature-list li {
+  font-size: 1rem;
   padding-left: 25px;
   margin-bottom: 15px;
   position: relative;
@@ -194,13 +199,6 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
-.feature-list li::before {
-  content: '✦';
-  position: absolute;
-  left: 0;
-  color: var(--primary);
-  font-size: 1rem;
-}
 
 .feature-list strong {
   color: var(--gold);
@@ -229,17 +227,19 @@
 }
 
 .why-us-cta h3 {
-  color: var(--gold);
-  font-size: 2rem;
+  color: #FFBD00;
+  font-family: 'Playfair Display SC', serif;
+  font-size: 1.5rem;
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 .why-us-cta > p {
+  font-family: 'Merriweather Sans', sans-serif;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1.15rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1;
   margin-bottom: 25px;
 }
 
@@ -252,11 +252,11 @@
 }
 
 .cta-box p {
-  color: var(--gold);
-  font-size: 1.3rem;
+  color: #FFBD00;
+  font-size: 1.2rem;
   font-style: italic;
   margin: 0;
-  font-weight: 500;
+  font-family: 'Playfair Display SC', serif;
   letter-spacing: 0.5px;
 }
 
@@ -305,7 +305,8 @@
 }
 
 .rules-card h3 {
-  color: var(--gold);
+  color: #FFBD00;
+  font-family: 'Playfair Display SC', serif;
   font-size: 1.5rem;
   margin-bottom: 25px;
   text-align: center;
@@ -333,7 +334,7 @@
   position: relative;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1.05rem;
+  font-size: 1.rem;
 }
 
 .rules-card ol li::before {
@@ -350,7 +351,6 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 0.9rem;
   box-shadow: 0 4px 10px rgba(255, 0, 54, 0.4);
   transition: all 0.3s ease;
 }
@@ -371,7 +371,7 @@
 
 .disclaimer p {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1.05rem;
+  font-size: .85rem;
   margin: 0;
   line-height: 1.7;
 }
