@@ -7,14 +7,19 @@
 
 .section-title2 {
   font-family: 'Playfair Display SC', serif;
-  color: var(--purple);
+  color: #FF0036;
   text-align: center;
   font-size: 3rem;
   margin-bottom: 3rem;
   letter-spacing: 2px;
-  position: relative;
 }
-
+.additional-objectives-title{
+  font-family: 'Playfair Display SC', serif;
+  color: var(--primary);
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 1.2px;
+}
 .section-title2::after {
   content: '';
   position: absolute;
@@ -23,9 +28,17 @@
   transform: translateX(-50%);
   width: 120px;
   height: 3px;
-  background: linear-gradient(90deg, transparent, var(--purple), var(--primary), transparent);
+  background: linear-gradient(90deg, transparent, #FFBD00, var(--primary), transparent);
 }
-
+.section-subtitle{
+  font-family: 'Merriweather Sans', sans-serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #ccc;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
 .blood-pact {
   background: rgba(40, 5, 10, 0.6);
   border: 2px solid rgba(139, 0, 0, 0.5);
@@ -110,6 +123,7 @@
 .objective-card {
   background: rgba(20, 15, 25, 0.7);
   border-radius: 12px;
+  border-color: #FFBD00;
   padding: 30px;
   border: 1px solid rgba(255, 0, 54, 0.2);
   transition: var(--transition);
@@ -117,7 +131,7 @@
 }
 
 .objective-card.occult {
-  border-color: rgba(139, 0, 255, 0.3);
+  border-color: #FFBD00;
 }
 
 .objective-card.dark {

@@ -162,6 +162,7 @@ body::before {
 .section-title-init {
   font-family: 'Playfair Display SC', serif;
   font-size: 3.5rem;
+  text-align: center;
   color: var(--primary);
   text-shadow: var(--glow);
   margin-top: 5rem;
@@ -355,7 +356,8 @@ body::before {
   font-family: 'Merriweather Sans', sans-serif;
   font-style: normal;
   font-size: 1.2rem;
-  line-height: 1;
+  text-align: center;
+  line-height: 1.5;
   background: rgba(15, 15, 20, 0.6);
   padding: 40px;
   border-left: 4px solid var(--primary);
