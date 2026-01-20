@@ -51,9 +51,9 @@
 }
 
 .location-info h3 {
-  color: var(--primary);
+  color: #FF0036;
   font-size: 1.9rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,23 +98,27 @@
 }
 
 .location-detail h4 {
+  font-family: 'Playfair Display SC', serif;
   margin-bottom: 10px;
   font-size: 1.2rem;
   color: var(--gold);
 }
 
 .location-detail p {
+  font-family: 'Merriweather Sans', sans-serif;
   margin-bottom: 0.5rem;
   line-height: 1.6;
 }
 
 .location-detail ul {
+  font-family: 'Merriweather Sans', sans-serif;
   padding-left: 18px;
   margin-top: 8px;
   list-style: none;
 }
 
 .location-detail li {
+  font-family: 'Merriweather Sans', sans-serif;
   margin-bottom: 8px;
   position: relative;
   padding-left: 15px;

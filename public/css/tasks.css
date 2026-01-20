@@ -1,6 +1,7 @@
 /* ==================== SECCIÓN: OPERACIONES/TAREAS ==================== */
 
 #tasks .section-title {
+  font-family: 'Playfair Display SC', serif;
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
@@ -48,7 +49,7 @@
 
 .operations-tab.active,
 .operations-tab:hover {
-  background: var(--primary);
+  background: #D12828;
   color: white;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(255, 0, 54, 0.4);
@@ -131,7 +132,7 @@
 
 .operation-icon {
   font-size: 2rem;
-  color: var(--primary);
+  color: #FFBD00;
   min-width: 50px;
   display: flex;
   align-items: flex-start;
@@ -148,7 +149,8 @@
 }
 
 .operation-details h3 {
-  color: var(--primary);
+  color: #FFBD00;
+  font-family: 'Playfair Display SC', serif;
   margin-bottom: 1rem;
   font-size: 1.4rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -162,9 +164,10 @@
 .operation-list {
   list-style-type: none;
   padding-left: 0;
+  font-size: 1rem;
 }
-
 .operation-list li {
+  font-family: 'Merriweather Sans', sans-serif;
   margin-bottom: 12px;
   padding-left: 20px;
   position: relative;
@@ -173,7 +176,7 @@
 
 .operation-list li::before {
   content: '▸';
-  color: var(--primary);
+  color: #FFBD00;
   position: absolute;
   left: 0;
   font-size: 1.2rem;
@@ -184,7 +187,7 @@
 }
 
 .operation-list strong {
-  color: var(--gold);
+  color: #FFBD00;
 }
 
 /* Sección de Staff */

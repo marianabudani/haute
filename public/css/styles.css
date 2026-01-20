@@ -406,14 +406,13 @@ body::before {
   border-radius: 15px;
   padding: 35px;
   margin: 40px 0;
-  border: 2px solid rgba(255, 215, 0, 0.3);
+  border: 2px solid #ff0036;
 }
 
 .daily-tasks h3 {
-  color: var(--gold);
+  color: #ff0036;
   font-size: 2rem;
   margin-bottom: 25px;
-  display: flex;
   align-items: center;
   gap: 12px;
 }
@@ -429,32 +428,37 @@ body::before {
   background: rgba(0, 0, 0, 0.3);
   padding: 20px;
   border-radius: 10px;
-  border-left: 3px solid var(--primary);
+  border-left: 3px solid #FFBD00;
 }
 
 .task-col h4 {
-  color: var(--primary);
+  color: #FFBD00;
   font-size: 1.5rem;
   margin-bottom: 15px;
 }
 
 .task-col ul {
+  font-family: 'Merriweather Sans', sans-serif;
   list-style: none;
   padding: 0;
 }
 
 .task-col li {
-  margin-bottom: 12px;
+  font-family: 'Merriweather Sans', sans-serif;
+  margin-bottom: 10px;
+  margin-top: 10px;
   padding-left: 20px;
   position: relative;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
-
+.task-col p{
+  font-family: 'Merriweather Sans', sans-serif;
+}
 .task-col li::before {
   content: '▸';
   position: absolute;
   left: 0;
-  color: var(--primary);
+  color: #FFBD00;
 }
 
 .prophecy-card,
@@ -616,7 +620,8 @@ body::before {
 }
 
 .menu-category h3 {
-  color: var(--primary);
+  font-family: 'Playfair Display SC', serif;
+  color: #FFBD00;
   margin-bottom: 20px;
   display: flex;
   align-items: center;

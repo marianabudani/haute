@@ -7,18 +7,26 @@
 
 .section-title2 {
   font-family: 'Playfair Display SC', serif;
-  color: #FF0036;
+  color: #FFBD00;
   text-align: center;
   font-size: 3rem;
-  margin-bottom: 3rem;
-  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
 }
 .additional-objectives-title{
   font-family: 'Playfair Display SC', serif;
-  color: var(--primary);
+  color: #FF0036;
   text-align: center;
   font-size: 1.5rem;
   letter-spacing: 1.2px;
+}
+.objectives-title-style{
+  font-family: 'Playfair Display SC', serif;
+  color: #ff00d4;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
 }
 .section-title2::after {
   content: '';
@@ -89,7 +97,8 @@
 .objective-main h3 {
   color: var(--gold);
   font-size: 2.2rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .reality-list {

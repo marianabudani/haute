@@ -60,7 +60,7 @@
 
 .attire-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(221, 43, 43, 0.4);
+  box-shadow: 0 10px 25px rgba(255, 51, 51, 0.4);
   border-color: var(--primary);
 }
 
@@ -90,7 +90,7 @@
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
-  background: #0A090D;
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
   border: 1px solid var(--primary);
 }
@@ -100,7 +100,8 @@
 }
 
 .attire-info h3 {
-  color: var(--primary);
+  font-family: 'Playfair Display SC', serif;
+  color: #FFBD00;
   margin: 0 0 15px;
   font-size: 1.5rem;
   text-align: center;
